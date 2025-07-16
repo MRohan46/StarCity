@@ -15,7 +15,7 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: process.env.NODE_ENV ? "http://localhost:5173" : "https://star-city-rp.vercel.app",
+    origin: "https://star-city-rp.vercel.app",
     credentials: true
 }));
 
