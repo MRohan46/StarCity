@@ -5,11 +5,12 @@ import { useNavigate } from 'react-router-dom';
 
 const useAuthRedirect = ({ redirectIfAuth = false, redirectIfVerified = false }) => {
   const navigate = useNavigate();
+  const host = "https://starcity.onrender.com"
 
   useEffect(() => {
     const checkAuth = async () => {
         try {
-          const res = await axios.get('http://localhost:5000/api/auth/is-auth', {
+          const res = await axios.get(`${host}/api/auth/is-auth`, {
             withCredentials: true
           });
       
