@@ -15,9 +15,12 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: *,
+    origin: function (origin, callback) {
+        callback(null, origin); // Reflect the requesting origin
+    },
     credentials: true
 }));
+
 
 app.get('/', (req, res)=> res.send(`API Working!`));
 app.use('/api/auth', authRouter);
