@@ -8,14 +8,14 @@ import userRouter from "./routes/userRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
+//"https://star-city-rp.vercel.app"
 // Connect To MongoDB
 connectDB();
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://star-city-rp.vercel.app",
+    origin: *,
     credentials: true
 }));
 
