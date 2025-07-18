@@ -35,12 +35,25 @@ const Register = () => {
         form,
         { withCredentials: true }
       );
-
+    
       if (res.data.success) {
         toast.success('✅ Registered successfully');
+    
+        // Send OTP after successful registration
+        try {
+          await axios.post(
+            `${host}/api/auth/send-verify-otp`,
+            {}, // assuming no body required
+            { withCredentials: true }
+          );
+        } catch (otpError) {
+          toast.error('⚠️ Failed to send OTP. Try again.');
+          console.error('OTP Error:', otpError);
+        }
+    
         setTimeout(() => {
           window.location.href = '/email-verify';
-        }, 1500);
+        }, 10);
       } else {
         toast.error(`❌ ${res.data.message}`);
         setLoading(false);
@@ -49,6 +62,7 @@ const Register = () => {
       toast.error(`❌ ${err.response?.data?.message || 'Something went wrong'}`);
       setLoading(false);
     }
+
   };
 
   return (
