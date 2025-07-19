@@ -6,7 +6,7 @@ export const createPayment = async (req, res) => {
 
   try {
     const response = await axios.post('https://api.nowpayments.io/v1/payment', {
-      price_amount: 10,
+      price_amount: 20,
       price_currency: 'usdttrc20',
       pay_currency: 'usdttrc20',
       order_id: orderId,
