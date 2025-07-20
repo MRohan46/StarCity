@@ -135,7 +135,7 @@ export const handleWebhook = async (req, res) => {
 
       console.log(`✅ Order ${order_id} paid successfully`);
       if (difference > 0.01) {
-        console.warn(`⚠️ Amount mismatch! Expected: ${expectedAmount}, Received: ${receivedAmount}, Difference: ${difference}`);
+        console.warn(`⚠️ Amount mismatch! Expected: ${payment.expected_amount}, Received: ${receivedAmount}, Difference: ${difference}`);
       }
 
       payment.payment_status = payment_status;
