@@ -76,7 +76,7 @@ export const createPayment = async (req, res) => {
       pay_currency: payment.pay_currency,
       order_id: payment.order_id,
       purchase_id: payment.purchase_id,
-      expected_amount: price,
+      expected_amount: payment.pay_amount,
       coins: coins
     });
 
