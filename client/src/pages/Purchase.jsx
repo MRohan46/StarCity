@@ -24,7 +24,7 @@ const Purchase = () => {
     e.preventDefault();
     try {
       const res = await axios.post(`${host}/api/payment/create`, {
-        price: parseFloat(amount),
+        price: amount,
         currency
       },
     {
