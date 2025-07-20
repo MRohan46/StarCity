@@ -103,7 +103,7 @@ export const createPayment = async (req, res) => {
 
 export const handleWebhook = async (req, res) => {
   try {
-    const payload = JSON.parse(req.body.toString('utf8'));
+    const payload = req.body;
     const signature = req.headers['x-nowpayments-sig'];
 
     if (!verifyHMAC(payload, signature)) {
