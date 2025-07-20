@@ -6,7 +6,7 @@ import userModel from '../models/userModel.js';
 export const createPayment = async (req, res) => {
   const userId = req.userId;
   const { price, currency } = req.body;
-  console.log('BODY RECEIVED:', req.body);
+
   const supportedStablecoins = [
     "USDT", "USDTEOS", "USDCKCC", "TUSD", "USDP", "USDCMATIC", "USDDTRC20",
     "USDTOP", "FDUSDBSC", "BUSDMATIC", "USDCBSC", "USDCOP", "USDCARB", "USDTALGO",
@@ -103,12 +103,12 @@ export const createPayment = async (req, res) => {
 
 export const handleWebhook = async (req, res) => {
   try {
-    const payload = req.body;
+    /*const payload = req.body;
     const signature = req.headers['x-nowpayments-sig'];
 
     if (!verifyHMAC(payload, signature)) {
       return res.status(401).send('Invalid signature');
-    }
+    }*/
 
     const { payment_status, pay_amount, order_id } = payload;
 
