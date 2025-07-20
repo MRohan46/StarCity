@@ -47,9 +47,7 @@ export const createPayment = async (req, res) => {
       order_description: "Coins Purchase",
       price_amount: price, // Your amount
       price_currency: currency, // Like "USDTTRC20", "USDTEOS", etc.
-      pay_currency: currency, // User's selected stablecoin (MUST be from your supported list)
       ipn_callback_url: "https://starcity.onrender.com/api/payment/webhook",
-      receive_currency: "BTC" // YOU always receive BTC, auto-converted
     };
       
 
