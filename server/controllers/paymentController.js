@@ -128,9 +128,15 @@ export const handleWebhook = async (req, res) => {
     }
     
 
-    const expectedAmount = parseFloat(payment.expected_amount);
-    if (payment_status === 'finished' && parseFloat(pay_amount) === expectedAmount) {
+    const receivedAmount = parseFloat(pay_amount);
+    const difference = Math.abs(receivedAmount - expectedAmount);
+
+    if (payment_status === 'finished') {
+
       console.log(`✅ Order ${order_id} paid successfully`);
+      if (difference > 0.01) {
+        console.warn(`⚠️ Amount mismatch! Expected: ${expectedAmount}, Received: ${receivedAmount}, Difference: ${difference}`);
+      }
 
       payment.payment_status = payment_status;
       await payment.save();
