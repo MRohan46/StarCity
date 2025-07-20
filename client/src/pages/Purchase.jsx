@@ -23,12 +23,16 @@ const Purchase = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://starcity.onrender.com/api/payment/create", {
-        withCredentials: true,
-      },{
-        price: amount,
-        currency: currency,
-      });
+      const res = await axios.post(
+        "https://starcity.onrender.com/api/payment/create",
+        {
+          price: amount,
+          currency: currency,
+        },
+        {
+          withCredentials: true,
+        }
+      );      
       setStatus({ success: true, data: res.data });
     } catch (err) {
       setStatus({
