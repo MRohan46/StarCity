@@ -46,7 +46,8 @@ export const createPayment = async (req, res) => {
       order_id: orderId || `orderid_${Math.floor(Math.random() * 1000000)}`,
       order_description: "Coins Purchase",
       price_amount: price, // Your amount
-      price_currency: currency, // Like "USDTTRC20", "USDTEOS", etc.
+      price_currency: "usd", // Like "USDTTRC20", "USDTEOS", etc.
+      pay_currency: currency,
       ipn_callback_url: "https://starcity.onrender.com/api/payment/webhook",
     };
       
