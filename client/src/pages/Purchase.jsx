@@ -25,7 +25,7 @@ const Purchase = () => {
     try {
       const res = await axios.post(`${host}/api/payment/create`, {
         price: amount,
-        currency
+        currency: currency,
       },
     {
       withCredentials: true,

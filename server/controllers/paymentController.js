@@ -23,9 +23,9 @@ export const createPayment = async (req, res) => {
   if (isNaN(parsedPrice)) return res.status(400).json({ error: "Invalid price" });  
 
   let coins = 0;
-  if (price === 10) {
+  if (parsedPrice === 10) {
     coins = 1000;
-  } else if (price === 20) {
+  } else if (parsedPrice === 20) {
     coins = 200000;
   } else {
     return res.json({ success: false, message: "Unsupported price value!" });
