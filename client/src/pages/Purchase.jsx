@@ -5,6 +5,7 @@ const Purchase = () => {
   const [amount, setAmount] = useState('');
   const [currency, setCurrency] = useState('usdterc20');
   const [status, setStatus] = useState(null);
+  const host = "https://starcity.onrender.com";
 
   const currencyOptions = [
     { code: "usdterc20", name: "USDT (ERC20)" },
@@ -22,10 +23,13 @@ const Purchase = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_HOST || ''}/api/payment/create`, {
+      const res = await axios.post(`${host}/api/payment/create`, {
         price: parseFloat(amount),
         currency
-      });
+      },
+    {
+      withCredentials: true,
+    });
       setStatus({ success: true, data: res.data });
     } catch (err) {
       setStatus({
@@ -141,5 +145,3 @@ const styles = {
     cursor: 'pointer',
   },
 };
-
-export default Purchase;
