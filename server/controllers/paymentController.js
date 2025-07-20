@@ -40,9 +40,11 @@ export const createPayment = async (req, res) => {
   } else {
     return res.json({ success: false, message: "Unsupported price value!" });
   }
-
+  const orderId = `orderid_${Math.floor(Math.random() * 1000000)}`;
   try {
     const paymentPayload = {
+      order_id: orderId || `orderid_${Math.floor(Math.random() * 1000000)}`,
+      order_description: "Coins Purchase",
       price_amount: price, // Your amount
       price_currency: currency, // Like "USDTTRC20", "USDTEOS", etc.
       pay_currency: currency, // User's selected stablecoin (MUST be from your supported list)
