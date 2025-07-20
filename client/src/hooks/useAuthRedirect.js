@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const useAuthRedirect = ({ redirectIfAuth = false, redirectIfVerified = false }) => {
   const navigate = useNavigate();
-  const host = "https://starcity.onrender.com"
+  const host = "http://localhost:5000"
 
   useEffect(() => {
     const checkAuth = async () => {
