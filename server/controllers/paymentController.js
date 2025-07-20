@@ -12,7 +12,7 @@ export const createPayment = async (req, res) => {
     "USDTOP", "FDUSDBSC", "BUSDMATIC", "USDCBSC", "USDCOP", "USDCARB", "USDTALGO",
     "USDCALGO", "USDCSOL", "CUSD", "USDCARC20", "USDCXLM", "USDTARC20", "USDTKAVA",
     "FDUSDERC20", "USDTMATIC", "USDTNEAR", "USDDBSC", "PYUSD", "USDTDOT", "USDTARB",
-    "TUSDTRC20", "DAIARB", "USDTTON"
+    "TUSDTRC20", "DAIARB", "USDTTON", "BTC"
   ];
   if (!supportedStablecoins.includes(currency)) {
     return res.status(400).json({ error: "Unsupported stablecoin" });
