@@ -129,7 +129,7 @@ export const handleWebhook = async (req, res) => {
     
 
     const receivedAmount = parseFloat(pay_amount);
-    const difference = Math.abs(receivedAmount - expectedAmount);
+    const difference = Math.abs(receivedAmount - payment.expected_amount);
 
     if (payment_status === 'finished') {
 
