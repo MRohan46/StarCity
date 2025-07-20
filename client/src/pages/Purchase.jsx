@@ -144,3 +144,4 @@ const styles = {
     cursor: 'pointer',
   },
 };
+export default Purchase;
