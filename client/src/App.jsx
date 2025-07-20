@@ -6,7 +6,7 @@ import ResetPassword from './pages/ResetPassword'
 import EmailVerification from './pages/EmailVerification'
 import Register from './pages/Register'
 import PaymentPage from './pages/PaymentPage'
-
+import Purchase from './pages/Purchase'
 
 const App = () => {
   return (
@@ -18,6 +18,7 @@ const App = () => {
         <Route path='/email-verify' element={<EmailVerification />}/>
         <Route path='/reset-password' element={<ResetPassword />}/>
         <Route path='/payment' element={<PaymentPage />}/>
+        <Route path='/purchase' element={<Purchase />}/>
       </Routes>
     </div>
   )
