@@ -103,13 +103,13 @@ export const createPayment = async (req, res) => {
 
 export const handleWebhook = async (req, res) => {
   try {
-    /*const payload = req.body;
-    const signature = req.headers['x-nowpayments-sig'];
+    const payload = req.body;
+    /*const signature = req.headers['x-nowpayments-sig'];
 
     if (!verifyHMAC(payload, signature)) {
       return res.status(401).send('Invalid signature');
     }*/
-
+    console.log("Received Webhook:", payload);
     const { payment_status, pay_amount, order_id } = payload;
 
     const payment = await paymentModel.findOne({ order_id });
