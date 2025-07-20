@@ -6,7 +6,7 @@ import userModel from '../models/userModel.js';
 export const createPayment = async (req, res) => {
   const userId = req.userId;
   const { price, currency } = req.body;
-
+  console.log('BODY RECEIVED:', req.body);
   const supportedStablecoins = [
     "USDT", "USDTEOS", "USDCKCC", "TUSD", "USDP", "USDCMATIC", "USDDTRC20",
     "USDTOP", "FDUSDBSC", "BUSDMATIC", "USDCBSC", "USDCOP", "USDCARB", "USDTALGO",
