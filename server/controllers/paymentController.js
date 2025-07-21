@@ -28,7 +28,7 @@ export const createPayment = async (req, res) => {
   } else if (parsedPrice === 20) {
     coins = 200000;
   } else {
-    return res.json({ success: false, message: "Unsupported price value!" });
+    coins = 3000000;
   }
   const orderId = `orderid_${Math.floor(Math.random() * 1000000)}`;
   try {
