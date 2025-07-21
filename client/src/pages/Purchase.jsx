@@ -18,6 +18,7 @@ const Purchase = () => {
     { code: "bnbbsc", name: "BNB (BSC)" },
     { code: "xrp", name: "XRP" },
     { code: "ltc", name: "Litecoin (LTC)" },
+    { code: "usdtbsc", name: "USDT (BEP20)" },
   ];
 
   const handleSubmit = async (e) => {
