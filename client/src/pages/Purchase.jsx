@@ -1,152 +1,140 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
-const Purchase = () => {
-  const [amount, setAmount] = useState('');
-  const [currency, setCurrency] = useState('usdterc20');
+const PRODUCTS = [
+  { product_id: "product_1", name: "Starter Pack", price: 10, coins: 5000 },
+  { product_id: "product_2", name: "Bronze Pack", price: 15, coins: 12000 },
+  { product_id: "product_3", name: "Silver Pack", price: 20, coins: 20000 },
+  { product_id: "product_4", name: "Gold Pack", price: 30, coins: 40000 },
+  { product_id: "product_5", name: "Platinum Pack", price: 35, coins: 90000 },
+];
+
+const CURRENCIES = [
+  { code: "usdterc20", name: "USDT (ERC20)" },
+  { code: "usdcsol", name: "USDC (Solana)" },
+  { code: "btc", name: "Bitcoin (BTC)" },
+  { code: "eth", name: "Ethereum (ETH)" },
+  { code: "usdttrc20", name: "USDT (TRC20)" },
+  { code: "busdbsc", name: "BUSD (BSC)" },
+  { code: "matic", name: "Polygon (MATIC)" },
+  { code: "bnbbsc", name: "BNB (BSC)" },
+  { code: "xrp", name: "XRP" },
+  { code: "ltc", name: "Litecoin (LTC)" },
+  { code: "usdtbsc", name: "USDT (BEP20)" },
+];
+//const host = "http://localhost:5000"
+const host = "https://starcity.onrender.com"
+const ProductPurchase = () => {
   const [status, setStatus] = useState(null);
-  const host = "https://starcity.onrender.com";
+  const [loading, setLoading] = useState(false);
+  const [currency, setCurrency] = useState("usdtbsc"); // default
 
-  const currencyOptions = [
-    { code: "usdterc20", name: "USDT (ERC20)" },
-    { code: "usdcsol", name: "USDC (Solana)" },
-    { code: "btc", name: "Bitcoin (BTC)" },
-    { code: "eth", name: "Ethereum (ETH)" },
-    { code: "usdttrc20", name: "USDT (TRC20)" },
-    { code: "busdbsc", name: "BUSD (BSC)" },
-    { code: "matic", name: "Polygon (MATIC)" },
-    { code: "bnbbsc", name: "BNB (BSC)" },
-    { code: "xrp", name: "XRP" },
-    { code: "ltc", name: "Litecoin (LTC)" },
-    { code: "usdtbsc", name: "USDT (BEP20)" },
-  ];
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const createPayment = async (product_id) => {
     try {
+      setLoading(true);
       const res = await axios.post(
-        "https://starcity.onrender.com/api/payment/create",
-        {
-          price: amount,
-          currency: currency,
-        },
-        {
-          withCredentials: true,
-        }
-      );      
+        `${host}/api/payment/create`,
+        { product_id, currency },
+        { withCredentials: true }
+      );
       setStatus({ success: true, data: res.data });
+      if(res.data.success){
+        window.location.href = res.data.redirectUrl || "/payment";
+      }
     } catch (err) {
       setStatus({
         success: false,
-        message: err?.response?.data?.message || 'Something went wrong'
+        message: err?.response?.data?.message || "Something went wrong",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div style={styles.container}>
-      <div style={styles.card}>
-        <h1 style={styles.heading}>Purchase Coins</h1>
-        <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
-          <div style={{ marginBottom: '1rem' }}>
-            <label style={styles.label}>Amount ($)</label>
-            <input
-              type="number"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              required
-              min={1}
-              style={styles.input}
-            />
-          </div>
-          <div style={{ marginBottom: '1rem' }}>
-            <label style={styles.label}>Currency</label>
-            <select
-              value={currency}
-              onChange={(e) => setCurrency(e.target.value)}
-              style={styles.input}
-            >
-              {currencyOptions.map((opt) => (
-                <option key={opt.code} value={opt.code}>
-                  {opt.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <button type="submit" style={styles.button}>
-            Purchase
-          </button>
-        </form>
+      <h2 style={styles.heading}>Choose a Coin Pack</h2>
 
-        {status && (
-          <div
-            style={{
-              marginTop: '1rem',
-              padding: '1rem',
-              backgroundColor: status.success ? '#dcfce7' : '#fee2e2',
-              borderRadius: '8px',
-              fontSize: '0.9rem',
-              marginTop: '1.5rem'
-            }}
-          >
-            {status.success ? (
-              <pre>{JSON.stringify(status.data, null, 2)}</pre>
-            ) : (
-              <span>{status.message}</span>
-            )}
-          </div>
-        )}
+      <div style={{ marginBottom: 20, textAlign: "center" }}>
+        <label style={{ marginRight: 10, fontWeight: "bold" }}>Currency:</label>
+        <select
+          value={currency}
+          onChange={(e) => setCurrency(e.target.value)}
+          style={styles.select}
+        >
+          {CURRENCIES.map((c) => (
+            <option key={c.code} value={c.code}>
+              {c.name}
+            </option>
+          ))}
+        </select>
       </div>
+
+      <div style={styles.grid}>
+        {PRODUCTS.map((p) => (
+          <div key={p.product_id} style={styles.card}>
+            <h3>{p.name}</h3>
+            <p><strong>{p.coins.toLocaleString()} Coins</strong></p>
+            <p>${p.price.toFixed(2)}</p>
+            <button
+              style={styles.button}
+              onClick={() => createPayment(p.product_id)}
+              disabled={loading}
+            >
+              {loading ? "Processing..." : "Purchase"}
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {status && (
+        <div style={{ marginTop: 20 }}>
+          {status.success ? (
+            <div style={{ color: "green" }}>
+              ✅ Payment Created:{" "}
+              <pre>{JSON.stringify(status.data, null, 2)}</pre>
+            </div>
+          ) : (
+            <div style={{ color: "red" }}>❌ {status.message}</div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
 
+// Basic inline styles
 const styles = {
-  container: {
-    minHeight: '100vh',
-    background: 'linear-gradient(to bottom right, #1a73e8, #673ab7)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '2rem',
+  container: { maxWidth: 900, margin: "auto", padding: 20 },
+  heading: { textAlign: "center", marginBottom: 20 },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
+    gap: "20px",
   },
   card: {
-    background: '#fff',
-    padding: '2rem 3rem',
-    borderRadius: '12px',
-    boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
-    maxWidth: '400px',
-    width: '100%',
-  },
-  heading: {
-    fontSize: '2rem',
-    color: '#333',
-    marginBottom: '1.5rem',
-    textAlign: 'center',
-  },
-  label: {
-    display: 'block',
-    marginBottom: '0.5rem',
-    fontWeight: 'bold',
-    color: '#444',
-  },
-  input: {
-    width: '100%',
-    padding: '0.75rem',
-    borderRadius: '6px',
-    border: '1px solid #ccc',
-    fontSize: '1rem',
+    border: "1px solid #ddd",
+    borderRadius: 10,
+    padding: 20,
+    textAlign: "center",
+    background: "#fff",
+    boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
   },
   button: {
-    marginTop: '1rem',
-    width: '100%',
-    padding: '0.8rem',
-    fontSize: '1rem',
-    backgroundColor: '#1a73e8',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '6px',
-    cursor: 'pointer',
+    padding: "8px 16px",
+    background: "#007bff",
+    color: "#fff",
+    border: "none",
+    borderRadius: 6,
+    cursor: "pointer",
+    marginTop: 10,
+  },
+  select: {
+    padding: "8px 12px",
+    fontSize: "1rem",
+    borderRadius: 6,
+    border: "1px solid #ccc",
   },
 };
-export default Purchase;
+
+export default ProductPurchase;

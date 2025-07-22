@@ -1,15 +1,17 @@
-// /pages/payment.jsx
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../styles/payment.css"; // <- import CSS file
+import "../styles/payment.css";
 
 const PaymentPage = () => {
   const [payment, setPayment] = useState(null);
+  const [loading, setLoading] = useState(false);
+  //const host = "http://localhost:5000";
+  const host = "https://starcity.onrender.com";
 
   useEffect(() => {
     const fetchPayment = async () => {
       try {
-        const res = await axios.get("https://starcity.onrender.com/api/payment/pending", {
+        const res = await axios.get(`${host}/api/payment/pending`, {
           withCredentials: true,
         });
         setPayment(res.data.payment);
@@ -19,6 +21,30 @@ const PaymentPage = () => {
     };
     fetchPayment();
   }, []);
+
+  const handleDelete = async () => {
+    if (!payment?.payment_id) return alert("No payment to delete");
+    console.log(payment)
+
+    try {
+      setLoading(true);
+      const res = await axios.post(`${host}/api/payment/delete`, {
+        payment_id: payment.payment_id,
+      }, { withCredentials: true });
+
+      if (res.data.success) {
+        alert("Payment deleted");
+        setPayment(null); // Remove from UI
+      } else {
+        alert(res.data.message || "Failed to delete payment");
+      }
+    } catch (err) {
+      console.error("Delete error", err);
+      alert("Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (!payment) return <p>Loading or no pending payment...</p>;
 
@@ -44,6 +70,15 @@ const PaymentPage = () => {
       />
 
       <p className="payment-status">⏳ Status: {payment.status}</p>
+
+      <button
+        className="delete-btn"
+        onClick={handleDelete}
+        disabled={loading}
+        style={{ marginTop: "20px", backgroundColor: "#e74c3c", color: "#fff" }}
+      >
+        {loading ? "Deleting..." : "❌ Cancel Payment"}
+      </button>
     </div>
   );
 };

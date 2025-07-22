@@ -3,34 +3,51 @@ import paymentModel from '../models/paymentModel.js';
 import { verifyHMAC } from '../utils/verifyWebhook.js';
 import userModel from '../models/userModel.js';
 
+
+const PRODUCTS = [
+  { product_id: "product_1", name: "Starter Pack", price: 10, coins: 5000 },
+  { product_id: "product_2", name: "Bronze Pack", price: 15, coins: 12000 },
+  { product_id: "product_3", name: "Silver Pack", price: 20, coins: 20000 },
+  { product_id: "product_4", name: "Gold Pack", price: 30, coins: 40000 },
+  { product_id: "product_5", name: "Platinum Pack", price: 35, coins: 90000 },
+];
+
 export const createPayment = async (req, res) => {
   const userId = req.userId;
-  const { price, currency } = req.body;
-
+  const { product_id, currency } = req.body;
+  
   if (!userId) {
     return res.json({ success: false, message: "UserId missing!" });
   }
-
+  
   const user = await userModel.findById(userId);
   if (!user || !user.isAccountVerified) {
     return res.json({ success: false, message: "User not found or not verified!" });
   }
-
-  if (!price || !currency) {
-    return res.json({ success: false, message: "Missing price or currency!" });
+  const existingPayment = await paymentModel.findOne({
+    user_id: userId,
+    payment_status: 'waiting'
+  });
+  if (existingPayment) {
+    return res.status(400).json({
+      success: false,
+      message: 'User already has an active payment'
+    });
   }
-  const parsedPrice = parseFloat(price);
-  if (isNaN(parsedPrice)) return res.status(400).json({ error: "Invalid price" });  
-
-  let coins = 0;
-  if (parsedPrice === 10) {
-    coins = 1000;
-  } else if (parsedPrice === 20) {
-    coins = 200000;
-  } else {
-    coins = 3000000;
+  if(!product_id || !currency){
+    return res.json({succes: false, message: "Please Select a product first!"})
   }
+  
+  const product = PRODUCTS.find(p => p.product_id === product_id);
+  
+  if (!product) {
+    return res.status(404).json({ error: "Invalid product" });
+  }
+
   const orderId = `orderid_${Math.floor(Math.random() * 1000000)}`;
+  const price = product.price;
+  const coins = product.coins;
+
   try {
     const paymentPayload = {
       order_id: orderId || `orderid_${Math.floor(Math.random() * 1000000)}`,
@@ -73,14 +90,7 @@ export const createPayment = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Payment created successfully",
-      payment: {
-        id: payment.payment_id,
-        amount: payment.pay_amount,
-        currency: payment.pay_currency,
-        payTo: payment.pay_address,
-        status: payment.payment_status,
-        coins: coins
-      }
+      redirectUrl: "/payment",
     });
 
   } catch (err) {
@@ -150,20 +160,80 @@ export const getPendingPayment = async (req, res) => {
   const userId = req.userId;
   if (!userId) return res.status(400).json({ error: "User not authenticated" });
 
-  const pending = await paymentModel.findOne({ 
+  // Fetch the latest "waiting" payment from DB
+  const pending = await paymentModel.findOne({
     user_id: userId,
-    payment_status: "waiting" 
+    payment_status: "waiting"
   }).sort({ createdAt: -1 });
 
   if (!pending) return res.status(404).json({ error: "No pending payment found" });
+  try {
+    // Get real-time status from NOWPayments API
+    const response = await axios.get(
+      `https://api.nowpayments.io/v1/payment/${pending.payment_id}`,
+      {
+        headers: {
+          'x-api-key': process.env.NOWPAYMENTS_API_KEY
+        }
+      }
+    );
 
-  res.json({
-    payment: {
-      id: pending.payment_id,
-      amount: pending.pay_amount,
-      currency: pending.pay_currency,
-      payTo: pending.pay_address,
-      status: pending.payment_status
+    const { payment_status, pay_amount, pay_currency, pay_address, payment_id } = response.data;
+
+    // Optional: Sync updated status back to DB
+    pending.payment_status = payment_status;
+    await pending.save();
+
+    res.json({
+      payment: {
+        id: pending.payment_id,
+        amount: pay_amount,
+        currency: pay_currency,
+        payTo: pay_address,
+        status: payment_status,
+        payment_id: payment_id,
+      }
+    });
+
+  } catch (err) {
+    console.error('NOWPayments API error:', err?.response?.data || err.message);
+    res.status(500).json({ error: 'Error fetching payment status from NOWPayments' });
+  }
+};
+
+export const deletePendingPayment = async (req, res) => {
+  const { payment_id } = req.body;
+  const userId = req.userId;
+
+  if (!userId) {
+    return res.status(401).json({ success: false, message: "User not authenticated" });
+  }
+
+  if (!payment_id) {
+    return res.status(400).json({ success: false, message: "Payment ID is required" });
+  }
+
+  try {
+    const payment = await paymentModel.findOne({ payment_id });
+
+    if (!payment) {
+      return res.status(404).json({ success: false, message: "Payment not found" });
     }
-  });
+
+    if (payment.user_id?.toString() !== userId.toString()) {
+      return res.status(403).json({ success: false, message: "You are not authorized to delete this payment" });
+    }
+
+    if (payment.payment_status !== "waiting") {
+      return res.status(400).json({ success: false, message: "Only pending payments can be deleted" });
+    }
+
+    await paymentModel.deleteOne({ payment_id });
+
+    return res.status(200).json({ success: true, message: "Payment deleted successfully" });
+
+  } catch (err) {
+    console.error("Error deleting payment:", err);
+    return res.status(500).json({ success: false, message: "Server error while deleting payment" });
+  }
 };
