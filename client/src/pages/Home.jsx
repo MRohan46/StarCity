@@ -97,7 +97,7 @@ const Home = () => {
           popupBtnElements.forEach(el => {
             el.innerHTML = '<b>My Dashboard</b>';
             el.onclick = () => {
-              window.location.href = 'my-dashboard.html';
+              navigate('/dashboard');
             };
           });
         } else {
