@@ -6,7 +6,7 @@ import useAuthRedirect from '../hooks/useAuthRedirect';
 
 const Register = () => {
   useAuthRedirect({ redirectIfAuth: true });
-  const host = "https://starcity.onrender.com"
+  const host = "https://api.starcityrp.com"
   const [form, setForm] = useState({
     fname: '',
     username: '',

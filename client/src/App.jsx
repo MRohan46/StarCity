@@ -7,6 +7,7 @@ import EmailVerification from './pages/EmailVerification'
 import Register from './pages/Register'
 import PaymentPage from './pages/PaymentPage'
 import Purchase from './pages/Purchase'
+import Dashboard from './pages/Dashboard'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/reset-password' element={<ResetPassword />}/>
         <Route path='/payment' element={<PaymentPage />}/>
         <Route path='/purchase' element={<Purchase />}/>
+        <Route path='/dashboard' element={<Dashboard />}/>
       </Routes>
     </div>
   )

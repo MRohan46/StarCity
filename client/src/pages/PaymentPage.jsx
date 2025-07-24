@@ -6,7 +6,7 @@ const PaymentPage = () => {
   const [payment, setPayment] = useState(null);
   const [loading, setLoading] = useState(false);
   //const host = "http://localhost:5000";
-  const host = "https://starcity.onrender.com";
+  const host = "https://api.starcityrp.com";
 
   useEffect(() => {
     const fetchPayment = async () => {

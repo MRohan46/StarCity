@@ -13,7 +13,7 @@ const EmailVerification = () => {
   const [timer, setTimer] = useState(60);
   const [resendCount, setResendCount] = useState(0);
   const [canResend, setCanResend] = useState(false);
-  const host = "https://starcity.onrender.com";
+  const host = "https://api.starcityrp.com";
 
   useEffect(() => {
     let interval;

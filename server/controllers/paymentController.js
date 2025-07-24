@@ -5,7 +5,7 @@ import userModel from '../models/userModel.js';
 
 
 const PRODUCTS = [
-  { product_id: "product_1", name: "Starter Pack", price: 10, coins: 5000 },
+  { product_id: "product_1", name: "Starter Pack", price: 5, coins: 5000 },
   { product_id: "product_2", name: "Bronze Pack", price: 15, coins: 12000 },
   { product_id: "product_3", name: "Silver Pack", price: 20, coins: 20000 },
   { product_id: "product_4", name: "Gold Pack", price: 30, coins: 40000 },
@@ -15,7 +15,6 @@ const PRODUCTS = [
 export const createPayment = async (req, res) => {
   const userId = req.userId;
   const { product_id, currency } = req.body;
-  
   if (!userId) {
     return res.json({ success: false, message: "UserId missing!" });
   }
@@ -29,13 +28,16 @@ export const createPayment = async (req, res) => {
     payment_status: 'waiting'
   });
   if (existingPayment) {
-    return res.status(400).json({
+    return res.json({
       success: false,
       message: 'User already has an active payment'
     });
   }
-  if(!product_id || !currency){
+  if(!product_id){
     return res.json({succes: false, message: "Please Select a product first!"})
+  }
+  if(!currency){
+    return res.json({succes: false, message: "Please Select a currency first!"})
   }
   
   const product = PRODUCTS.find(p => p.product_id === product_id);
@@ -124,7 +126,7 @@ export const handleWebhook = async (req, res) => {
 
     const user = await userModel.findById(payment.user_id);
     if (!user || !user.isAccountVerified) {
-      return res.status(400).json({ success: false, message: "User not found or not verified" });
+      return res.json({ success: false, message: "User not found or not verified" });
     }
     
 

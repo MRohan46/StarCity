@@ -10,7 +10,7 @@ const ResetPassword = () => {
   const [step, setStep] = useState(1);
   const [cooldown, setCooldown] = useState(0);
   const [loading, setLoading] = useState(false);
-  const host = "https://starcity.onrender.com"
+  const host = "https://api.starcityrp.com"
 
 
   useEffect(() => {

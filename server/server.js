@@ -17,7 +17,7 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://star-city-rp.vercel.app",
+    origin: "https://www.starcityrp.com",
     credentials: true
 }));
 

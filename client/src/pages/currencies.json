@@ -1,0 +1,1014 @@
+[
+  {
+    "label": "USDTTRC20",
+    "value": "usdttrc20"
+  },
+  {
+    "label": "USDC",
+    "value": "usdc"
+  },
+  {
+    "label": "USDE",
+    "value": "usde"
+  },
+  {
+    "label": "INJ",
+    "value": "inj"
+  },
+  {
+    "label": "FUN",
+    "value": "fun"
+  },
+  {
+    "label": "THETA",
+    "value": "theta"
+  },
+  {
+    "label": "BEFI",
+    "value": "befi"
+  },
+  {
+    "label": "CULT",
+    "value": "cult"
+  },
+  {
+    "label": "STX",
+    "value": "stx"
+  },
+  {
+    "label": "XRP",
+    "value": "xrp"
+  },
+  {
+    "label": "DGB",
+    "value": "dgb"
+  },
+  {
+    "label": "XYO",
+    "value": "xyo"
+  },
+  {
+    "label": "KLV",
+    "value": "klv"
+  },
+  {
+    "label": "BEL",
+    "value": "bel"
+  },
+  {
+    "label": "AITECH",
+    "value": "aitech"
+  },
+  {
+    "label": "CATI",
+    "value": "cati"
+  },
+  {
+    "label": "AVA2BSC",
+    "value": "ava2bsc"
+  },
+  {
+    "label": "DAIARB",
+    "value": "daiarb"
+  },
+  {
+    "label": "FLOKI",
+    "value": "floki"
+  },
+  {
+    "label": "UNI",
+    "value": "uni"
+  },
+  {
+    "label": "BCH",
+    "value": "bch"
+  },
+  {
+    "label": "SHIB",
+    "value": "shib"
+  },
+  {
+    "label": "DOT",
+    "value": "dot"
+  },
+  {
+    "label": "C98",
+    "value": "c98"
+  },
+  {
+    "label": "BIFIERC20",
+    "value": "bifierc20"
+  },
+  {
+    "label": "SAND",
+    "value": "sand"
+  },
+  {
+    "label": "CHZ",
+    "value": "chz"
+  },
+  {
+    "label": "ZROERC20",
+    "value": "zroerc20"
+  },
+  {
+    "label": "HOT",
+    "value": "hot"
+  },
+  {
+    "label": "WINTRC20",
+    "value": "wintrc20"
+  },
+  {
+    "label": "TUSDTRC20",
+    "value": "tusdtrc20"
+  },
+  {
+    "label": "USDTMATIC",
+    "value": "usdtmatic"
+  },
+  {
+    "label": "DASH",
+    "value": "dash"
+  },
+  {
+    "label": "CNS",
+    "value": "cns"
+  },
+  {
+    "label": "AVAXC",
+    "value": "avaxc"
+  },
+  {
+    "label": "VELO",
+    "value": "velo"
+  },
+  {
+    "label": "AWEBASE",
+    "value": "awebase"
+  },
+  {
+    "label": "LUNC",
+    "value": "lunc"
+  },
+  {
+    "label": "USDCARB",
+    "value": "usdcarb"
+  },
+  {
+    "label": "ARPABSC",
+    "value": "arpabsc"
+  },
+  {
+    "label": "PIKA",
+    "value": "pika"
+  },
+  {
+    "label": "APT",
+    "value": "apt"
+  },
+  {
+    "label": "IOTX",
+    "value": "iotx"
+  },
+  {
+    "label": "OMG",
+    "value": "omg"
+  },
+  {
+    "label": "HOTCROSS",
+    "value": "hotcross"
+  },
+  {
+    "label": "GUARD",
+    "value": "guard"
+  },
+  {
+    "label": "USDTSOL",
+    "value": "usdtsol"
+  },
+  {
+    "label": "STRKMAINNET",
+    "value": "strkmainnet"
+  },
+  {
+    "label": "USDSSOL",
+    "value": "usdssol"
+  },
+  {
+    "label": "USDDTRC20",
+    "value": "usddtrc20"
+  },
+  {
+    "label": "LEASH",
+    "value": "leash"
+  },
+  {
+    "label": "MYRO",
+    "value": "myro"
+  },
+  {
+    "label": "BUSDBSC",
+    "value": "busdbsc"
+  },
+  {
+    "label": "QTUM",
+    "value": "qtum"
+  },
+  {
+    "label": "NOT",
+    "value": "not"
+  },
+  {
+    "label": "SFUND",
+    "value": "sfund"
+  },
+  {
+    "label": "BRISE",
+    "value": "brise"
+  },
+  {
+    "label": "RACA",
+    "value": "raca"
+  },
+  {
+    "label": "ZKSYNC",
+    "value": "zksync"
+  },
+  {
+    "label": "RVN",
+    "value": "rvn"
+  },
+  {
+    "label": "BOBA",
+    "value": "boba"
+  },
+  {
+    "label": "MOG",
+    "value": "mog"
+  },
+  {
+    "label": "BNBBSC",
+    "value": "bnbbsc"
+  },
+  {
+    "label": "KAS",
+    "value": "kas"
+  },
+  {
+    "label": "OKB",
+    "value": "okb"
+  },
+  {
+    "label": "SNSY",
+    "value": "snsy"
+  },
+  {
+    "label": "MARSH",
+    "value": "marsh"
+  },
+  {
+    "label": "ETHW",
+    "value": "ethw"
+  },
+  {
+    "label": "FDUSDERC20",
+    "value": "fdusderc20"
+  },
+  {
+    "label": "NOW",
+    "value": "now"
+  },
+  {
+    "label": "FIL",
+    "value": "fil"
+  },
+  {
+    "label": "INJMAINNET",
+    "value": "injmainnet"
+  },
+  {
+    "label": "DADDY",
+    "value": "daddy"
+  },
+  {
+    "label": "CSWAP",
+    "value": "cswap"
+  },
+  {
+    "label": "BRETTBASE",
+    "value": "brettbase"
+  },
+  {
+    "label": "S",
+    "value": "s"
+  },
+  {
+    "label": "CATSTON",
+    "value": "catston"
+  },
+  {
+    "label": "USDCARC20",
+    "value": "usdcarc20"
+  },
+  {
+    "label": "JETTON",
+    "value": "jetton"
+  },
+  {
+    "label": "TFUEL",
+    "value": "tfuel"
+  },
+  {
+    "label": "USDCBSC",
+    "value": "usdcbsc"
+  },
+  {
+    "label": "ZENT",
+    "value": "zent"
+  },
+  {
+    "label": "IDBSC",
+    "value": "idbsc"
+  },
+  {
+    "label": "HMSTR",
+    "value": "hmstr"
+  },
+  {
+    "label": "BONE",
+    "value": "bone"
+  },
+  {
+    "label": "TUSD",
+    "value": "tusd"
+  },
+  {
+    "label": "SUNDOG",
+    "value": "sundog"
+  },
+  {
+    "label": "ARB",
+    "value": "arb"
+  },
+  {
+    "label": "ATLAS",
+    "value": "atlas"
+  },
+  {
+    "label": "MANA",
+    "value": "mana"
+  },
+  {
+    "label": "CRO",
+    "value": "cro"
+  },
+  {
+    "label": "CHR",
+    "value": "chr"
+  },
+  {
+    "label": "CFX",
+    "value": "cfx"
+  },
+  {
+    "label": "CSPR",
+    "value": "cspr"
+  },
+  {
+    "label": "PEIPEI",
+    "value": "peipei"
+  },
+  {
+    "label": "KAIA",
+    "value": "kaia"
+  },
+  {
+    "label": "GBSC",
+    "value": "gbsc"
+  },
+  {
+    "label": "USDR",
+    "value": "usdr"
+  },
+  {
+    "label": "APE",
+    "value": "ape"
+  },
+  {
+    "label": "TET",
+    "value": "tet"
+  },
+  {
+    "label": "FTN",
+    "value": "ftn"
+  },
+  {
+    "label": "TRVL",
+    "value": "trvl"
+  },
+  {
+    "label": "DGMOON",
+    "value": "dgmoon"
+  },
+  {
+    "label": "WBTCMATIC",
+    "value": "wbtcmatic"
+  },
+  {
+    "label": "TKO",
+    "value": "tko"
+  },
+  {
+    "label": "USDCBASE",
+    "value": "usdcbase"
+  },
+  {
+    "label": "XVG",
+    "value": "xvg"
+  },
+  {
+    "label": "HEX",
+    "value": "hex"
+  },
+  {
+    "label": "COTI",
+    "value": "coti"
+  },
+  {
+    "label": "1INCH",
+    "value": "1inch"
+  },
+  {
+    "label": "ATOM",
+    "value": "atom"
+  },
+  {
+    "label": "SHIBBSC",
+    "value": "shibbsc"
+  },
+  {
+    "label": "PLS",
+    "value": "pls"
+  },
+  {
+    "label": "USDJ",
+    "value": "usdj"
+  },
+  {
+    "label": "TON",
+    "value": "ton"
+  },
+  {
+    "label": "WOLFERC20",
+    "value": "wolferc20"
+  },
+  {
+    "label": "FLOKIBSC",
+    "value": "flokibsc"
+  },
+  {
+    "label": "BTC",
+    "value": "btc"
+  },
+  {
+    "label": "SNEK",
+    "value": "snek"
+  },
+  {
+    "label": "X",
+    "value": "x"
+  },
+  {
+    "label": "USDTCELO",
+    "value": "usdtcelo"
+  },
+  {
+    "label": "LTC",
+    "value": "ltc"
+  },
+  {
+    "label": "QUACK",
+    "value": "quack"
+  },
+  {
+    "label": "BTTCBSC",
+    "value": "bttcbsc"
+  },
+  {
+    "label": "GAFA",
+    "value": "gafa"
+  },
+  {
+    "label": "XMR",
+    "value": "xmr"
+  },
+  {
+    "label": "USDCSOL",
+    "value": "usdcsol"
+  },
+  {
+    "label": "NEAR",
+    "value": "near"
+  },
+  {
+    "label": "ALGO",
+    "value": "algo"
+  },
+  {
+    "label": "YFI",
+    "value": "yfi"
+  },
+  {
+    "label": "GETH",
+    "value": "geth"
+  },
+  {
+    "label": "SXPMAINNET",
+    "value": "sxpmainnet"
+  },
+  {
+    "label": "DINO",
+    "value": "dino"
+  },
+  {
+    "label": "DOGS",
+    "value": "dogs"
+  },
+  {
+    "label": "FDUSDBSC",
+    "value": "fdusdbsc"
+  },
+  {
+    "label": "SEI",
+    "value": "sei"
+  },
+  {
+    "label": "JST",
+    "value": "jst"
+  },
+  {
+    "label": "RJVERC20",
+    "value": "rjverc20"
+  },
+  {
+    "label": "BERA",
+    "value": "bera"
+  },
+  {
+    "label": "ONE",
+    "value": "one"
+  },
+  {
+    "label": "TRUMP",
+    "value": "trump"
+  },
+  {
+    "label": "GUSD",
+    "value": "gusd"
+  },
+  {
+    "label": "USDTBSC",
+    "value": "usdtbsc"
+  },
+  {
+    "label": "XTZ",
+    "value": "xtz"
+  },
+  {
+    "label": "GALAERC20",
+    "value": "galaerc20"
+  },
+  {
+    "label": "TLOS",
+    "value": "tlos"
+  },
+  {
+    "label": "NFTB",
+    "value": "nftb"
+  },
+  {
+    "label": "SYSEVM",
+    "value": "sysevm"
+  },
+  {
+    "label": "PIT",
+    "value": "pit"
+  },
+  {
+    "label": "NEIROERC20",
+    "value": "neiroerc20"
+  },
+  {
+    "label": "ETHARB",
+    "value": "etharb"
+  },
+  {
+    "label": "OPUSDCE",
+    "value": "opusdce"
+  },
+  {
+    "label": "USDTERC20",
+    "value": "usdterc20"
+  },
+  {
+    "label": "ARPA",
+    "value": "arpa"
+  },
+  {
+    "label": "DCR",
+    "value": "dcr"
+  },
+  {
+    "label": "AVA2ERC20",
+    "value": "ava2erc20"
+  },
+  {
+    "label": "XAUT",
+    "value": "xaut"
+  },
+  {
+    "label": "PONKE",
+    "value": "ponke"
+  },
+  {
+    "label": "DAO",
+    "value": "dao"
+  },
+  {
+    "label": "USDCALGO",
+    "value": "usdcalgo"
+  },
+  {
+    "label": "SUPER",
+    "value": "super"
+  },
+  {
+    "label": "BTTC",
+    "value": "bttc"
+  },
+  {
+    "label": "EURR",
+    "value": "eurr"
+  },
+  {
+    "label": "ETHBSC",
+    "value": "ethbsc"
+  },
+  {
+    "label": "GERC20",
+    "value": "gerc20"
+  },
+  {
+    "label": "PYUSD",
+    "value": "pyusd"
+  },
+  {
+    "label": "SOL",
+    "value": "sol"
+  },
+  {
+    "label": "RJVBSC",
+    "value": "rjvbsc"
+  },
+  {
+    "label": "CGPT",
+    "value": "cgpt"
+  },
+  {
+    "label": "ILV",
+    "value": "ilv"
+  },
+  {
+    "label": "AVN",
+    "value": "avn"
+  },
+  {
+    "label": "USDTTON",
+    "value": "usdtton"
+  },
+  {
+    "label": "INJERC20",
+    "value": "injerc20"
+  },
+  {
+    "label": "KLVMAINNET",
+    "value": "klvmainnet"
+  },
+  {
+    "label": "KEANU",
+    "value": "keanu"
+  },
+  {
+    "label": "GARI",
+    "value": "gari"
+  },
+  {
+    "label": "ETC",
+    "value": "etc"
+  },
+  {
+    "label": "GRT",
+    "value": "grt"
+  },
+  {
+    "label": "AVAX",
+    "value": "avax"
+  },
+  {
+    "label": "MATIC",
+    "value": "matic"
+  },
+  {
+    "label": "USDP",
+    "value": "usdp"
+  },
+  {
+    "label": "PIVX",
+    "value": "pivx"
+  },
+  {
+    "label": "LINK",
+    "value": "link"
+  },
+  {
+    "label": "KNC",
+    "value": "knc"
+  },
+  {
+    "label": "ONT",
+    "value": "ont"
+  },
+  {
+    "label": "NETVR",
+    "value": "netvr"
+  },
+  {
+    "label": "LNQ",
+    "value": "lnq"
+  },
+  {
+    "label": "PEPE",
+    "value": "pepe"
+  },
+  {
+    "label": "XLM",
+    "value": "xlm"
+  },
+  {
+    "label": "VERSE",
+    "value": "verse"
+  },
+  {
+    "label": "OM",
+    "value": "om"
+  },
+  {
+    "label": "NWC",
+    "value": "nwc"
+  },
+  {
+    "label": "SIDUSERC20",
+    "value": "siduserc20"
+  },
+  {
+    "label": "ICX",
+    "value": "icx"
+  },
+  {
+    "label": "VLXBSC",
+    "value": "vlxbsc"
+  },
+  {
+    "label": "PEW",
+    "value": "pew"
+  },
+  {
+    "label": "HOGE",
+    "value": "hoge"
+  },
+  {
+    "label": "USDTOP",
+    "value": "usdtop"
+  },
+  {
+    "label": "BAD",
+    "value": "bad"
+  },
+  {
+    "label": "AXS",
+    "value": "axs"
+  },
+  {
+    "label": "DOGE",
+    "value": "doge"
+  },
+  {
+    "label": "WAVES",
+    "value": "waves"
+  },
+  {
+    "label": "CTSI",
+    "value": "ctsi"
+  },
+  {
+    "label": "AAVE",
+    "value": "aave"
+  },
+  {
+    "label": "MOGBASE",
+    "value": "mogbase"
+  },
+  {
+    "label": "BANANA",
+    "value": "banana"
+  },
+  {
+    "label": "USDTARC20",
+    "value": "usdtarc20"
+  },
+  {
+    "label": "EGLD",
+    "value": "egld"
+  },
+  {
+    "label": "FLUF",
+    "value": "fluf"
+  },
+  {
+    "label": "BELBSC",
+    "value": "belbsc"
+  },
+  {
+    "label": "FITFI",
+    "value": "fitfi"
+  },
+  {
+    "label": "SUN",
+    "value": "sun"
+  },
+  {
+    "label": "EGLDBSC",
+    "value": "egldbsc"
+  },
+  {
+    "label": "BAZED",
+    "value": "bazed"
+  },
+  {
+    "label": "ETH",
+    "value": "eth"
+  },
+  {
+    "label": "KIBABSC",
+    "value": "kibabsc"
+  },
+  {
+    "label": "CVC",
+    "value": "cvc"
+  },
+  {
+    "label": "XDC",
+    "value": "xdc"
+  },
+  {
+    "label": "ETHBASE",
+    "value": "ethbase"
+  },
+  {
+    "label": "ETHLNA",
+    "value": "ethlna"
+  },
+  {
+    "label": "CGPTBSC",
+    "value": "cgptbsc"
+  },
+  {
+    "label": "KISHU",
+    "value": "kishu"
+  },
+  {
+    "label": "LINGO",
+    "value": "lingo"
+  },
+  {
+    "label": "USDTARB",
+    "value": "usdtarb"
+  },
+  {
+    "label": "ARV",
+    "value": "arv"
+  },
+  {
+    "label": "TENSHI",
+    "value": "tenshi"
+  },
+  {
+    "label": "LUNA",
+    "value": "luna"
+  },
+  {
+    "label": "CAKE",
+    "value": "cake"
+  },
+  {
+    "label": "JASMY",
+    "value": "jasmy"
+  },
+  {
+    "label": "MATICMAINNET",
+    "value": "maticmainnet"
+  },
+  {
+    "label": "HBAR",
+    "value": "hbar"
+  },
+  {
+    "label": "XEC",
+    "value": "xec"
+  },
+  {
+    "label": "TRX",
+    "value": "trx"
+  },
+  {
+    "label": "MATICUSDCE",
+    "value": "maticusdce"
+  },
+  {
+    "label": "VET",
+    "value": "vet"
+  },
+  {
+    "label": "ADA",
+    "value": "ada"
+  },
+  {
+    "label": "MX",
+    "value": "mx"
+  },
+  {
+    "label": "USDCMATIC",
+    "value": "usdcmatic"
+  },
+  {
+    "label": "DAI",
+    "value": "dai"
+  },
+  {
+    "label": "MEW",
+    "value": "mew"
+  },
+  {
+    "label": "BAT",
+    "value": "bat"
+  },
+  {
+    "label": "FTT",
+    "value": "ftt"
+  },
+  {
+    "label": "BABYDOGE",
+    "value": "babydoge"
+  },
+  {
+    "label": "ID",
+    "value": "id"
+  },
+  {
+    "label": "PLX",
+    "value": "plx"
+  },
+  {
+    "label": "SUI",
+    "value": "sui"
+  },
+  {
+    "label": "GT",
+    "value": "gt"
+  },
+  {
+    "label": "ZROARB",
+    "value": "zroarb"
+  },
+  {
+    "label": "STKK",
+    "value": "stkk"
+  },
+  {
+    "label": "ZEC",
+    "value": "zec"
+  },
+  {
+    "label": "USDCOP",
+    "value": "usdcop"
+  },
+  {
+    "label": "MAJOR",
+    "value": "major"
+  },
+  {
+    "label": "VPS",
+    "value": "vps"
+  }
+]

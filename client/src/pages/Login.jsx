@@ -10,7 +10,7 @@ const Login = () => {
   const [emailOrUsername, setEmailOrUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const host = "https://starcity.onrender.com"
+  const host = "https://api.starcityrp.com"
   //const host = "http://localhost:5000"
 
 
