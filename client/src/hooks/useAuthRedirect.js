@@ -40,7 +40,7 @@ const useUserData = ({ onSuccess } = {}) => {
               navigate("/email-verify", { replace: true });
             }
           } else {
-            if (["/login", "/register"].includes(path)) {
+            if (["/login", "/signup"].includes(path)) {
               navigate("/", { replace: true });
             }
           }
