@@ -138,8 +138,8 @@ const Login = () => {
             <a href="dashboard">Dashboard</a>
           ) : (
             <>
-              <a href="login" className="login-btn">LOGIN</a>
-              <a href="signup" className="login-btn">Signup</a>
+              <a href="login">LOGIN</a>
+              <a href="signup">Signup</a>
             </>
           )
         }
