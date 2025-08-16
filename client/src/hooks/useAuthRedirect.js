@@ -1,44 +1,69 @@
-import { useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
+import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
 
-const useUserData = ({ check, redirect, onSuccess }) => {
+const useUserData = ({ onSuccess } = {}) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const host = "https://api.starcityrp.com";
-  //const host = "http://localhost:5000";
+  // const host = "http://localhost:5000";
 
   useEffect(() => {
     let isMounted = true;
 
-    const getUserData = async () => {
+    const checkUser = async () => {
       try {
-        const res = await axios.get(`${host}/api/user/data`, { withCredentials: true });
+        const res = await axios.get(`${host}/api/user/data`, {
+          withCredentials: true,
+        });
 
         if (!isMounted) return;
 
-        if (res.data.success) {
-          // Call onSuccess callback if provided
-          if (onSuccess) onSuccess(res.data.user);
+        const user = res.data?.user;
+        const isAuth = !!res.data?.success;
+        const isVerified = user?.isVerified;
+        const path = location.pathname;
 
-          if (check === 'verified' && res.data.user.isVerified) {
-            navigate(redirect);
-          } else if (check === 'auth' && res.data.success) {
-            navigate(redirect);
+        // 🔥 call onSuccess if defined
+        if (isAuth && onSuccess) {
+          onSuccess(user);
+        }
+
+        // ----------------- Redirect Logic -----------------
+        if (!isAuth) {
+          if (["/payment", "/paid", "/dashboard", "/logout"].includes(path)) {
+            navigate("/login", { replace: true });
+          }
+        } else {
+          if (!isVerified) {
+            if (path !== "/email-verify") {
+              navigate("/email-verify", { replace: true });
+            }
+          } else {
+            if (["/login", "/register"].includes(path)) {
+              navigate("/", { replace: true });
+            }
           }
         }
+        // --------------------------------------------------
+
       } catch (err) {
         if (!isMounted) return;
-
-        if (check === 'auth') {
-          navigate(redirect);
+        if (
+          ["/payment", "/paid", "/dashboard", "/logout"].includes(location.pathname)
+        ) {
+          navigate("/login", { replace: true });
         }
       }
     };
 
-    getUserData();
+    checkUser();
 
-    return () => { isMounted = false; };
-  }, [check, redirect]); // ✅ No navigate/onSuccess in deps to avoid infinite loop
+    return () => {
+      isMounted = false;
+    };
+  }, [location.pathname, navigate, onSuccess]);
+
 };
 
 export default useUserData;

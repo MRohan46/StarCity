@@ -7,7 +7,7 @@ const PaidPayments = () => {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState('');
   const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
-
+  useUserData();
   useEffect(() => {
     axios
       .get('https://api.starcityrp.com/api/payment/paid', { withCredentials: true })

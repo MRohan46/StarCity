@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import useUserData from "../hooks/useAuthRedirect.js";
 
 const Logout = () => {
+  useUserData();
   useEffect(() => {
     axios.post("https://api.starcityrp.com/api/auth/logout", {}, { withCredentials: true })
       .then(() => {

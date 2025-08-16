@@ -3,11 +3,11 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import useAuthRedirect from "../hooks/useAuthRedirect.js";
 import "../styles/style.css"; // For glassy & site-wide styles
+import useUserData from "../hooks/useAuthRedirect.js";
 
 const EmailVerification = () => {
-  useAuthRedirect({ redirectIfVerified: true });
+  useUserData();
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();

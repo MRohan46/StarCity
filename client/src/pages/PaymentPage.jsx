@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/payment.css";
+import useUserData from "../hooks/useAuthRedirect.js";
 
 const PaymentPage = () => {
   const [payment, setPayment] = useState(null);
   const [loading, setLoading] = useState(false);
   //const host = "http://localhost:5000";
   const host = "https://api.starcityrp.com";
-
+  useUserData();
   useEffect(() => {
     const fetchPayment = async () => {
       setLoading(true);
