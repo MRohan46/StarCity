@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 const useUserData = ({ check, redirect, onSuccess }) => {
   const navigate = useNavigate();
-  //const host = "https://api.starcityrp.com";
-  const host = "http://localhost:5000";
+  const host = "https://api.starcityrp.com";
+  //const host = "http://localhost:5000";
 
   useEffect(() => {
     let isMounted = true;
