@@ -590,7 +590,6 @@ const Purchase = () => {
           <div className="packages-grid">
             {membershipData.map((pkg) => (
               <div key={pkg.id} className="package-card" onClick={() => buyPackage(pkg.name, pkg.price)}>
-                <div className="bonus-tag">{pkg.bonusTag}</div>
                 <img
                   src={pkg.image}
                   className="card-img"
