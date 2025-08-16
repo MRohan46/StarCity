@@ -15,6 +15,7 @@ const paymentSchema = new mongoose.Schema({
   user_wallet_address: { type: String },
   expected_amount: { type: Number },
   coins: { type: Number },
+  duration: {type: Number}
 }, { timestamps: true });
 
 const paymentModel = mongoose.models.payment || mongoose.model("payment", paymentSchema);

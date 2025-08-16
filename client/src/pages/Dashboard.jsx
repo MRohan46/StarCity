@@ -142,14 +142,21 @@ const Dashboard = () => {
         <p><strong>Name:</strong> {user?.name}</p>
         <p><strong>Username:</strong> {user?.username}</p>
         <p><strong>Email:</strong> {user?.email}</p>
-        <p><strong>Last Login:</strong>{user?.lastLogin
+        <p><strong>Last Login: </strong>{user?.lastLogin
                                         ? new Date(user.lastLogin).toLocaleString("en-US", {
                                             dateStyle: "medium",
                                             timeStyle: "short",
                                           })
-                                        : "Never"}
+                                        : " Never"}
         </p>
         <p><strong>Coins Balance:</strong> {user?.coins}</p>
+        <p><strong>Vip Membership: </strong>{user?.vipExpiry
+                                        ? new Date(user?.vipExpiry).toLocaleString("en-US", {
+                                            dateStyle: "medium",
+                                            timeStyle: "short",
+                                          })
+                                        : " No Membership"}
+        </p>
       </div>
     )}
       </main>

@@ -113,8 +113,50 @@ const PRODUCTS = [
     image: './images/legend.jpg',
     bonusTag: 'ULTIMATE WEB BONUS',
     tierClass: 'ultimate'
-  }
+  },
+  {
+    id: '1mon',
+    name: 'Basic VIP',
+    tier: 'Basic VIP',
+    coins: "1 Month",
+    duration: "1",
+    price: 4.99,
+    image: './images/Vip1Star.jpg',
+    tierClass: 'bronze'
+  },
+  {
+    id: '3mon',
+    name: 'Better VIP',
+    tier: 'Better VIP',
+    coins: "3 Months",
+    duration: "3",
+    price: 10.99,
+    image: './images/Vip2Star.jpg',
+    tierClass: 'legendary'
+  },
+  {
+    id: '6mon',
+    name: 'Premium VIP',
+    tier: 'Premium VIP',
+    coins: "6 Months",
+    duration: "6",
+    price: 18.99,
+    image: './images/Vip3Star.jpg',
+    tierClass: 'ultimate'
+  },
+  {
+    id: '12mon',
+    name: 'Ultimate VIP',
+    tier: 'Ultimate VIP',
+    coins: "1 Year",
+    duration: "12",
+    price: 32.99,
+    image: './images/Vip4Star.jpg',
+    tierClass: 'royal'
+  },
 ];
+
+
 
 export const createPayment = async (req, res) => {
   const userId = req.userId;
@@ -145,26 +187,27 @@ export const createPayment = async (req, res) => {
   }
 
   
-  const product = PRODUCTS.find(p => p.id === product_id);
-  
-  if (!product) {
-    return res.status(404).json({ error: "Invalid product" });
-  }
+const product = PRODUCTS.find(p => p.id === product_id);
 
-  const orderId = `orderid_${Math.floor(Math.random() * 1000000)}`;
-  const price = product.price;
-  const coins = product.coins;
+if (!product) {
+  return res.status(404).json({ error: "Invalid product" });
+}
+
+const orderId = `orderid_${Math.floor(Math.random() * 1000000)}`;
+const price = product.price;
+
+// Check if it's VIP (duration-based) or Coins package
+const isVip = ["1mon", "3mon", "6mon", "12mon"].includes(product.id);
 
   try {
     const paymentPayload = {
-      order_id: orderId || `orderid_${Math.floor(Math.random() * 1000000)}`,
-      order_description: "Coins Purchase",
-      price_amount: price, // Your amount
-      price_currency: "usd", // Like "USDTTRC20", "USDTEOS", etc.
+      order_id: orderId,
+      order_description: isVip ? "VIP Membership Purchase" : "Coins Purchase",
+      price_amount: price,
+      price_currency: "usd", 
       pay_currency: currency,
       ipn_callback_url: "https://starcity.onrender.com/api/payment/webhook",
     };
-      
 
     const response = await axios.post(
       "https://api.nowpayments.io/v1/payment",
@@ -191,7 +234,11 @@ export const createPayment = async (req, res) => {
       order_id: payment.order_id,
       purchase_id: payment.purchase_id,
       expected_amount: payment.pay_amount,
-      coins: coins
+
+      // save coins OR duration depending on type
+      coins: isVip ? undefined : product.coins,
+      duration: isVip ? product.duration : undefined,
+      product_id: product.id,
     });
 
     res.status(200).json({
@@ -204,6 +251,7 @@ export const createPayment = async (req, res) => {
     console.error("Payment creation error:", err?.response?.data || err.message);
     res.status(500).json({ success: false, error: "Failed to create payment" });
   }
+
 };
 
 
@@ -211,12 +259,11 @@ export const createPayment = async (req, res) => {
 export const handleWebhook = async (req, res) => {
   try {
     const payload = req.body;
-    //const signature = req.headers['x-nowpayments-sig'];
+    const signature = req.headers['x-nowpayments-sig'];
 
-    //if (!verifyHMAC(payload, signature)) {
-      //return res.status(401).send('Invalid signature');
-    //}
-    console.log("Received Webhook:", payload);
+    if (!verifyHMAC(payload, signature)) {
+      return res.status(401).send('Invalid signature');
+    }
     const { payment_status, pay_amount, order_id } = payload;
 
     const payment = await paymentModel.findOne({ order_id });
@@ -233,13 +280,11 @@ export const handleWebhook = async (req, res) => {
     if (!user || !user.isVerified) {
       return res.json({ success: false, message: "User not found or not verified" });
     }
-    
 
     const receivedAmount = parseFloat(pay_amount);
     const difference = Math.abs(receivedAmount - payment.expected_amount);
 
     if (payment_status === 'finished') {
-
       console.log(`✅ Order ${order_id} paid successfully`);
       if (difference > 0.01) {
         console.warn(`⚠️ Amount mismatch! Expected: ${payment.expected_amount}, Received: ${receivedAmount}, Difference: ${difference}`);
@@ -248,8 +293,17 @@ export const handleWebhook = async (req, res) => {
       payment.payment_status = payment_status;
       await payment.save();
 
-      user.coins += payment.coins;
-      await user.save(); 
+      // 🔑 Update coins or duration
+      if (payment.coins && payment.coins > 0) {
+        user.coins += payment.coins;
+      } else if (payment.duration && payment.duration > 0) {
+        const currentExpiry = user.vipExpiry ? new Date(user.vipExpiry) : new Date();
+        const newExpiry = new Date(currentExpiry);
+        newExpiry.setMonth(newExpiry.getMonth() + payment.duration);
+        user.vipExpiry = newExpiry;
+      }
+
+      await user.save();
     } else {
       console.log(`❌ Order ${order_id} failed or wrong amount`);
     }

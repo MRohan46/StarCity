@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
   password:{type: String, required: true},
   name:{type: String, required: true},
   coins:{type: Number, default: 0},
+  vipExpiry:{type: Date},
   lastLogin:{type: Date, default: Date.now()},
   isVerified:{type: Boolean, default: false},
   resetPasswordToken: String,

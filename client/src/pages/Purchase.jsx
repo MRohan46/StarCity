@@ -8,111 +8,13 @@ import { useNavigate } from 'react-router-dom';
 import { use } from 'react';
 import useUserData from "../hooks/useAuthRedirect.js"
 import currencies from './currencies.json';
-
-// Package data -  with the HTML structure
-const packageData = [
-  {
-    id: 'bronze',
-    name: 'Bronze',
-    tier: 'BRONZE TIER',
-    coins: 3570,
-    originalAmount: 3370,
-    bonus: 200,
-    price: 4.99,
-    image: './images/bronze.jpg',
-    bonusTag: 'BRONZE WEB BONUS',
-    tierClass: 'bronze'
-  },
-  {
-    id: 'silver',
-    name: 'Silver',
-    tier: 'SILVER TIER',
-    coins: 8415,
-    originalAmount: 7515,
-    bonus: 900,
-    price: 9.99,
-    image: './images/silver.jpg',
-    bonusTag: 'SILVER WEB BONUS',
-    tierClass: 'silver'
-  },
-  {
-    id: 'platinum',
-    name: 'Platinum',
-    tier: 'PLATINUM TIER',
-    coins: 13175,
-    originalAmount: 11675,
-    bonus: 1500,
-    price: 14.99,
-    image: './images/platinum.jpg',
-    bonusTag: 'PLATINUM WEB BONUS',
-    tierClass: 'platinum'
-  },
-  {
-    id: 'diamond',
-    name: 'Diamond',
-    tier: 'DIAMOND TIER',
-    coins: 18275,
-    originalAmount: 15775,
-    bonus: 2500,
-    price: 19.99,
-    image: './images/diamond.jpg',
-    bonusTag: 'MEGA WEB BONUS',
-    tierClass: 'diamond'
-  },
-  {
-    id: 'emperor',
-    name: 'Emperor',
-    tier: 'EMPEROR TIER',
-    coins: 48875,
-    originalAmount: 41375,
-    bonus: 7500,
-    price: 49.99,
-    image: './images/emperor.jpg',
-    bonusTag: 'EMPEROR WEB BONUS',
-    tierClass: 'emperor'
-  },
-  {
-    id: 'legendary',
-    name: 'Legendary',
-    tier: 'LEGENDARY TIER',
-    coins: 102000,
-    originalAmount: 82000,
-    bonus: 20000,
-    price: 99.99,
-    image: './images/legendary.jpg',
-    bonusTag: 'LEGENDARY WEB BONUS',
-    tierClass: 'legendary'
-  },
-  {
-    id: 'royal',
-    name: 'Royal',
-    tier: 'ROYAL TIER',
-    coins: 157250,
-    originalAmount: 112250,
-    bonus: 35000,
-    price: 149.99,
-    image: './images/royal.jpg',
-    bonusTag: 'ROYAL WEB TREATMENT',
-    tierClass: 'royal'
-  },
-  {
-    id: 'ultimate',
-    name: 'Ultimate',
-    tier: 'ULTIMATE',
-    coins: 212500,
-    originalAmount: 162500,
-    bonus: 50000,
-    price: 199.99,
-    image: './images/legend.jpg',
-    bonusTag: 'ULTIMATE WEB BONUS',
-    tierClass: 'ultimate'
-  }
-];
-
+import { packageData } from '../assets/packageData.js'
+import { membershipData } from '../assets/membershipData.js'
 // Simulated toast notifications
 const useToast = () => {
   const [toasts, setToasts] = useState([]);
-
+  
+  
   const showToast = (message, type = 'info') => {
     const id = Date.now();
     const toast = { id, message, type };
@@ -136,8 +38,8 @@ const ToastContainer = ({ toasts }) => (
   <div className="toast-container">
     {toasts.map(toast => (
       <div
-        key={toast.id}
-        className={`toast toast-${toast.type}`}
+      key={toast.id}
+      className={`toast toast-${toast.type}`}
       >
         {toast.message}
       </div>
@@ -154,6 +56,7 @@ const Purchase = () => {
   const [walletOptions, setWalletOptions] = useState('')
   const [isProcessing, setIsProcessing] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false)
+  const [showPopup, setShowPopup] = useState(false);
   
   const navigate = useNavigate();  
   const toast = useToast();
@@ -205,7 +108,7 @@ const Purchase = () => {
   }, [selectedMethod, selectedWallet]);
 
   const buyPackage = (packageName, price) => {
-    const product = packageData.find(pkg => pkg.name === packageName);
+    const product = packageData.find(pkg => pkg.name === packageName) || membershipData.find(pkg => pkg.name === packageName);
     if (product) {
       setSelectedProduct(product);
       setShowPaymentModal(true);
@@ -510,7 +413,59 @@ const Purchase = () => {
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
           animation: slideIn 0.3s ease;
         }
+        .popup-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.7);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1000;
+        }
 
+        .popup-content {
+          background: #fff;
+          padding: 30px;
+          max-width: 600px;
+          width: 90%;
+          border-radius: 15px;
+          text-align: center;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .popup-content h2 {
+          margin-bottom: 15px;
+          color: #333;
+        }
+
+        .popup-content p {
+          color: #555;
+          line-height: 1.6;
+          margin-bottom: 20px;
+        }
+
+        .close-btn {
+          background: #ff4757;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+        .close-btn:hover {
+          background: #e84118;
+        }
+        .benefits-text p {
+          margin: 12px 0;
+          font-size: 1.05rem;
+          line-height: 1.6;
+          background: #f8f9fa;
+          padding: 10px 15px;
+          border-radius: 8px;
+        }
         .toast-success {
           border-left: 4px solid #28a745;
         }
@@ -608,10 +563,10 @@ const Purchase = () => {
                   <div className={`package-tier ${pkg.tierClass}`}>
                     {pkg.tier}
                   </div>
-                  <div className="coins-amount">{pkg.coins.toLocaleString()}</div>
-                  <div className="original-amount">{pkg.originalAmount.toLocaleString()}</div>
-                  <div className="bonus-info">BONUS {pkg.bonus.toLocaleString()}</div>
-                  <div className="package-price">${pkg.price}</div>
+                  <div className="coins-amount">{pkg?.coins.toLocaleString()}</div>
+                  <div className="original-amount">{pkg?.originalAmount.toLocaleString()}</div>
+                  <div className="bonus-info">BONUS {pkg?.bonus.toLocaleString()}</div>
+                  <div className="package-price">${pkg?.price}</div>
                   <button className="buy-package-btn" onClick={(e) => {
                     e.stopPropagation();
                     buyPackage(pkg.name, pkg.price);
@@ -624,6 +579,105 @@ const Purchase = () => {
           </div>
         </div>
 
+        {/* Membership Packages */}
+        <div className="packages-section">
+          <div className="packages-header">
+            <h2>VIP Member Ships</h2>
+            <p>Choose from our exclusive Vip Memberships with incredible Benefits.</p>
+            <button className='buy-package-btn'onClick={() => setShowPopup(true)} >View Benefits.</button>
+          </div>
+
+          <div className="packages-grid">
+            {membershipData.map((pkg) => (
+              <div key={pkg.id} className="package-card" onClick={() => buyPackage(pkg.name, pkg.price)}>
+                <div className="bonus-tag">{pkg.bonusTag}</div>
+                <img
+                  src={pkg.image}
+                  className="card-img"
+                  alt={`${pkg.name} Package`}
+                  onError={(e) => {
+                    e.target.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23374151"/><text x="100" y="100" text-anchor="middle" dy=".35em" fill="%23ffffff" font-size="14">${pkg.name}</text></svg>`;
+                  }}
+                />
+                <div className="package-details">
+                  <div className={`package-tier ${pkg.tierClass}`}>
+                    {pkg.tier}
+                  </div>
+                  <div className="coins-amount">{pkg.coins.toLocaleString()}</div>
+                  <div className="package-price">${pkg.price}</div>
+                  <button className="buy-package-btn" onClick={(e) => {
+                    e.stopPropagation();
+                    buyPackage(pkg.name, pkg.price);
+                  }}>
+                    BUY NOW
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Popup Modal */}
+{showPopup && (
+        <div 
+          className="popup-overlay" 
+          style={{
+            position: "fixed", top: 0, left: 0, width: "100%", height: "100%",
+            background: "rgba(0,0,0,0.7)", display: "flex",
+            alignItems: "center", justifyContent: "center", zIndex: 1000
+          }}
+          onClick={() => setShowPopup(false)}
+        >
+          <div 
+            className="popup-content" 
+            style={{
+              background: "#fff",
+              padding: "30px",
+              maxWidth: "700px",
+              width: "95%",
+              maxHeight: "80vh",
+              overflowY: "auto",
+              borderRadius: "20px",
+              textAlign: "left", // force left alignment
+              boxShadow: "0 10px 25px rgba(0,0,0,0.3)"
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 style={{ textAlign: "center", marginBottom: "20px", color: "#2c3e50" }}>
+              ✨ VIP Membership Benefits ✨
+            </h2>
+
+            <div>
+              <p style={{ margin: "12px 0", fontSize: "1.05rem", lineHeight: "1.6" }}>🎯 Faster progression in the game (More XP and in-game money)</p>
+              <p style={{ margin: "12px 0", fontSize: "1.05rem", lineHeight: "1.6" }}>🎁 Exclusive vehicles, outfits, and helicopters only purchasable by VIP players</p>
+              <p style={{ margin: "12px 0", fontSize: "1.05rem", lineHeight: "1.6" }}>💰 Weekly or monthly rewards (Free in-game money or rare items)</p>
+              <p style={{ margin: "12px 0", fontSize: "1.05rem", lineHeight: "1.6" }}>⏱ Priority customer support with faster response times</p>
+              <p style={{ margin: "12px 0", fontSize: "1.05rem", lineHeight: "1.6" }}>📦 Exclusive VIP missions or events (Higher rewards and unique gameplay)</p>
+              <p style={{ margin: "12px 0", fontSize: "1.05rem", lineHeight: "1.6" }}>📞 Access to special in-game services (Call a helicopter or car anytime)</p>
+              <p style={{ margin: "12px 0", fontSize: "1.05rem", lineHeight: "1.6" }}>👑 VIP badge next to your username (Stand out from other players)</p>
+              <p style={{ margin: "12px 0", fontSize: "1.05rem", lineHeight: "1.6" }}>💬 VIP role in the game server and Discord community</p>
+              <p style={{ margin: "12px 0", fontSize: "1.05rem", lineHeight: "1.6" }}>🎮 Priority access to servers or queues</p>
+              <p style={{ margin: "12px 0", fontSize: "1.05rem", lineHeight: "1.6" }}>🔒 Early access to updates or new game features</p>
+            </div>
+
+            <button 
+              onClick={() => setShowPopup(false)}
+              style={{
+                display: "block",
+                margin: "20px auto 0",
+                background: "#ff4757",
+                color: "#fff",
+                padding: "10px 25px",
+                border: "none",
+                borderRadius: "12px",
+                cursor: "pointer"
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+      </div>
+        
         {/* Payment Modal */}
         {showPaymentModal && selectedProduct && (
           <div className="payment-modal">
@@ -636,9 +690,9 @@ const Purchase = () => {
               {/* Selected Product Info */}
               <div className="product-info">
                 <h4>Selected Package</h4>
-                <p><strong>Name:</strong> {selectedProduct.name}</p>
-                <p><strong>Coins:</strong> {selectedProduct.coins.toLocaleString()}</p>
-                <p><strong>Bonus:</strong> {selectedProduct.bonus.toLocaleString()}</p>
+                <p><strong>{String(selectedProduct?.coins).includes("Months") ? "Membership: " : "Name: "}</strong> {selectedProduct.name}</p>
+                <p><strong>{String(selectedProduct?.coins).includes("Months") ? "Duration: " : "Coins: "}</strong> {selectedProduct?.coins?.toLocaleString()}</p>
+                <p><strong>{String(selectedProduct?.coins).includes("Months") ? "" : "Coins: "}</strong> {selectedProduct?.bonus?.toLocaleString() || ""}</p>
                 <p><strong>Price:</strong> ${selectedProduct.price}</p>
               </div>
 
@@ -681,7 +735,9 @@ const Purchase = () => {
                         .filter((wallet) => {
                           // Exclude TUSDTRC20 for Silver and Bronze products
                           if ((selectedProduct?.id?.toLowerCase() === 'silver' || 
-                              selectedProduct?.id?.toLowerCase() === 'bronze') && 
+                              selectedProduct?.id?.toLowerCase() === 'bronze'  ||
+                              selectedProduct?.id?.toLowerCase() === '1mon'    ||
+                              selectedProduct?.id?.toLowerCase() === '3mon') && 
                               wallet.value === 'usdttrc20') {
                             return false;
                           }
