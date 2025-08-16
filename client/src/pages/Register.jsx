@@ -119,8 +119,8 @@ const Register = () => {
               <a href="dashboard" className="login-btn">Dashboard</a>
             ) : (
               <>
-                <a href="login" >LOGIN</a>
-                <a href="signup" >Signup</a>
+                <a href="login" className="login-btn">LOGIN</a>
+                <a href="signup" className="login-btn">Signup</a>
               </>
             )
           }
@@ -146,8 +146,8 @@ const Register = () => {
             <a href="dashboard" >Dashboard</a>
           ) : (
             <>
-              <a href="login" className="login-btn">LOGIN</a>
-              <a href="signup" className="login-btn">Signup</a>
+              <a href="login" >LOGIN</a>
+              <a href="signup" >Signup</a>
             </>
           )
         }
