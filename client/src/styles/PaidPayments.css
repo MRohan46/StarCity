@@ -1,0 +1,57 @@
+.paid-payments-page {
+  padding: 20px;
+  background: #f5f6fa;
+  min-height: 100vh;
+}
+
+.page-title {
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.cards-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.payment-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  word-break: break-all;
+}
+
+.payment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.status-badge {
+  background: #4caf50;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+
+.payment-id {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.card-body p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}

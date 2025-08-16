@@ -1,0 +1,1014 @@
+[
+  {
+    "label": "USDT (TRC20)",
+    "value": "usdttrc20"
+  },
+  {
+    "label": "USD Coin",
+    "value": "usdc"
+  },
+  {
+    "label": "Ethena USDe",
+    "value": "usde"
+  },
+  {
+    "label": "Injective Protocol",
+    "value": "inj"
+  },
+  {
+    "label": "FunFair",
+    "value": "fun"
+  },
+  {
+    "label": "Theta Network",
+    "value": "theta"
+  },
+  {
+    "label": "BeFi Labs",
+    "value": "befi"
+  },
+  {
+    "label": "Cult DAO",
+    "value": "cult"
+  },
+  {
+    "label": "Stacks",
+    "value": "stx"
+  },
+  {
+    "label": "Ripple",
+    "value": "xrp"
+  },
+  {
+    "label": "DigiByte",
+    "value": "dgb"
+  },
+  {
+    "label": "XYO Network",
+    "value": "xyo"
+  },
+  {
+    "label": "Klever",
+    "value": "klv"
+  },
+  {
+    "label": "Bella Protocol",
+    "value": "bel"
+  },
+  {
+    "label": "Solidus AI Tech",
+    "value": "aitech"
+  },
+  {
+    "label": "Catizen",
+    "value": "cati"
+  },
+  {
+    "label": "Travala (BSC)",
+    "value": "ava2bsc"
+  },
+  {
+    "label": "DAI (Arbitrum)",
+    "value": "daiarb"
+  },
+  {
+    "label": "FLOKI",
+    "value": "floki"
+  },
+  {
+    "label": "Uniswap",
+    "value": "uni"
+  },
+  {
+    "label": "Bitcoin Cash",
+    "value": "bch"
+  },
+  {
+    "label": "Shiba Inu",
+    "value": "shib"
+  },
+  {
+    "label": "Polkadot",
+    "value": "dot"
+  },
+  {
+    "label": "Coin98",
+    "value": "c98"
+  },
+  {
+    "label": "BiFi (ERC20)",
+    "value": "bifierc20"
+  },
+  {
+    "label": "The Sandbox",
+    "value": "sand"
+  },
+  {
+    "label": "Chiliz",
+    "value": "chz"
+  },
+  {
+    "label": "LayerZero (ERC20)",
+    "value": "zroerc20"
+  },
+  {
+    "label": "Holo",
+    "value": "hot"
+  },
+  {
+    "label": "WINk (TRC20)",
+    "value": "wintrc20"
+  },
+  {
+    "label": "TrueUSD (TRC20)",
+    "value": "tusdtrc20"
+  },
+  {
+    "label": "USDT (Polygon)",
+    "value": "usdtmatic"
+  },
+  {
+    "label": "Dash",
+    "value": "dash"
+  },
+  {
+    "label": "Centric Swap",
+    "value": "cns"
+  },
+  {
+    "label": "Avalanche",
+    "value": "avaxc"
+  },
+  {
+    "label": "Velo",
+    "value": "velo"
+  },
+  {
+    "label": "Awe (Base)",
+    "value": "awebase"
+  },
+  {
+    "label": "Terra Classic",
+    "value": "lunc"
+  },
+  {
+    "label": "USDC (Arbitrum)",
+    "value": "usdcarb"
+  },
+  {
+    "label": "ARPA (BSC)",
+    "value": "arpabsc"
+  },
+  {
+    "label": "Pika Protocol",
+    "value": "pika"
+  },
+  {
+    "label": "Aptos",
+    "value": "apt"
+  },
+  {
+    "label": "IoTeX",
+    "value": "iotx"
+  },
+  {
+    "label": "OMG Network",
+    "value": "omg"
+  },
+  {
+    "label": "Hot Cross",
+    "value": "hotcross"
+  },
+  {
+    "label": "Guardian",
+    "value": "guard"
+  },
+  {
+    "label": "USDT (Solana)",
+    "value": "usdtsol"
+  },
+  {
+    "label": "Starknet",
+    "value": "strkmainnet"
+  },
+  {
+    "label": "USDS (Solana)",
+    "value": "usdssol"
+  },
+  {
+    "label": "USDD (TRC20)",
+    "value": "usddtrc20"
+  },
+  {
+    "label": "Doge Killer",
+    "value": "leash"
+  },
+  {
+    "label": "Myro",
+    "value": "myro"
+  },
+  {
+    "label": "BUSD (BSC)",
+    "value": "busdbsc"
+  },
+  {
+    "label": "Qtum",
+    "value": "qtum"
+  },
+  {
+    "label": "Notcoin",
+    "value": "not"
+  },
+  {
+    "label": "Seedify Fund",
+    "value": "sfund"
+  },
+  {
+    "label": "Bitgert",
+    "value": "brise"
+  },
+  {
+    "label": "Radio Caca",
+    "value": "raca"
+  },
+  {
+    "label": "zkSync",
+    "value": "zksync"
+  },
+  {
+    "label": "Ravencoin",
+    "value": "rvn"
+  },
+  {
+    "label": "Boba Network",
+    "value": "boba"
+  },
+  {
+    "label": "Mog Coin",
+    "value": "mog"
+  },
+  {
+    "label": "BNB (BSC)",
+    "value": "bnbbsc"
+  },
+  {
+    "label": "Kaspa",
+    "value": "kas"
+  },
+  {
+    "label": "OKB Token",
+    "value": "okb"
+  },
+  {
+    "label": "SENSO",
+    "value": "snsy"
+  },
+  {
+    "label": "UnMarshal",
+    "value": "marsh"
+  },
+  {
+    "label": "Ethereum PoW",
+    "value": "ethw"
+  },
+  {
+    "label": "First Digital USD (ERC20)",
+    "value": "fdusderc20"
+  },
+  {
+    "label": "ChangeNOW",
+    "value": "now"
+  },
+  {
+    "label": "Filecoin",
+    "value": "fil"
+  },
+  {
+    "label": "Injective (Mainnet)",
+    "value": "injmainnet"
+  },
+  {
+    "label": "Daddy Tate",
+    "value": "daddy"
+  },
+  {
+    "label": "CoinSwap Space",
+    "value": "cswap"
+  },
+  {
+    "label": "Brett (Base)",
+    "value": "brettbase"
+  },
+  {
+    "label": "Solana Name Service",
+    "value": "s"
+  },
+  {
+    "label": "Catslap",
+    "value": "catston"
+  },
+  {
+    "label": "USDC (Arbitrum One)",
+    "value": "usdcarc20"
+  },
+  {
+    "label": "Jetton",
+    "value": "jetton"
+  },
+  {
+    "label": "Theta Fuel",
+    "value": "tfuel"
+  },
+  {
+    "label": "USDC (BSC)",
+    "value": "usdcbsc"
+  },
+  {
+    "label": "Zentry",
+    "value": "zent"
+  },
+  {
+    "label": "SPACE ID (BSC)",
+    "value": "idbsc"
+  },
+  {
+    "label": "Hamster Kombat",
+    "value": "hmstr"
+  },
+  {
+    "label": "Bone ShibaSwap",
+    "value": "bone"
+  },
+  {
+    "label": "TrueUSD",
+    "value": "tusd"
+  },
+  {
+    "label": "SUNDOG",
+    "value": "sundog"
+  },
+  {
+    "label": "Arbitrum",
+    "value": "arb"
+  },
+  {
+    "label": "Star Atlas",
+    "value": "atlas"
+  },
+  {
+    "label": "Decentraland",
+    "value": "mana"
+  },
+  {
+    "label": "Cronos",
+    "value": "cro"
+  },
+  {
+    "label": "Chromia",
+    "value": "chr"
+  },
+  {
+    "label": "Conflux",
+    "value": "cfx"
+  },
+  {
+    "label": "Casper Network",
+    "value": "cspr"
+  },
+  {
+    "label": "Peipei",
+    "value": "peipei"
+  },
+  {
+    "label": "Kaia",
+    "value": "kaia"
+  },
+  {
+    "label": "Green Beli (BSC)",
+    "value": "gbsc"
+  },
+  {
+    "label": "Real USD",
+    "value": "usdr"
+  },
+  {
+    "label": "ApeCoin",
+    "value": "ape"
+  },
+  {
+    "label": "Tethereum",
+    "value": "tet"
+  },
+  {
+    "label": "Fasttoken",
+    "value": "ftn"
+  },
+  {
+    "label": "Dtravel",
+    "value": "trvl"
+  },
+  {
+    "label": "DogeGF",
+    "value": "dgmoon"
+  },
+  {
+    "label": "Wrapped Bitcoin (Polygon)",
+    "value": "wbtcmatic"
+  },
+  {
+    "label": "Tokocrypto",
+    "value": "tko"
+  },
+  {
+    "label": "USDC (Base)",
+    "value": "usdcbase"
+  },
+  {
+    "label": "Verge",
+    "value": "xvg"
+  },
+  {
+    "label": "HEX",
+    "value": "hex"
+  },
+  {
+    "label": "COTI",
+    "value": "coti"
+  },
+  {
+    "label": "1inch Network",
+    "value": "1inch"
+  },
+  {
+    "label": "Cosmos Hub",
+    "value": "atom"
+  },
+  {
+    "label": "SHIB (BSC)",
+    "value": "shibbsc"
+  },
+  {
+    "label": "PulseChain",
+    "value": "pls"
+  },
+  {
+    "label": "USDJ",
+    "value": "usdj"
+  },
+  {
+    "label": "Toncoin",
+    "value": "ton"
+  },
+  {
+    "label": "Landwolf (ERC20)",
+    "value": "wolferc20"
+  },
+  {
+    "label": "FLOKI (BSC)",
+    "value": "flokibsc"
+  },
+  {
+    "label": "Bitcoin",
+    "value": "btc"
+  },
+  {
+    "label": "Cardano Snek",
+    "value": "snek"
+  },
+  {
+    "label": "X Empire",
+    "value": "x"
+  },
+  {
+    "label": "USDT (Celo)",
+    "value": "usdtcelo"
+  },
+  {
+    "label": "Litecoin",
+    "value": "ltc"
+  },
+  {
+    "label": "RichQUACK",
+    "value": "quack"
+  },
+  {
+    "label": "BitTorrent (BSC)",
+    "value": "bttcbsc"
+  },
+  {
+    "label": "Guardian",
+    "value": "gafa"
+  },
+  {
+    "label": "Monero",
+    "value": "xmr"
+  },
+  {
+    "label": "USDC (Solana)",
+    "value": "usdcsol"
+  },
+  {
+    "label": "NEAR Protocol",
+    "value": "near"
+  },
+  {
+    "label": "Algorand",
+    "value": "algo"
+  },
+  {
+    "label": "yearn.finance",
+    "value": "yfi"
+  },
+  {
+    "label": "Goerli ETH",
+    "value": "geth"
+  },
+  {
+    "label": "Swipe (Mainnet)",
+    "value": "sxpmainnet"
+  },
+  {
+    "label": "DinoLFG",
+    "value": "dino"
+  },
+  {
+    "label": "Dogs",
+    "value": "dogs"
+  },
+  {
+    "label": "First Digital USD (BSC)",
+    "value": "fdusdbsc"
+  },
+  {
+    "label": "Sei Network",
+    "value": "sei"
+  },
+  {
+    "label": "JUST",
+    "value": "jst"
+  },
+  {
+    "label": "Rojava (ERC20)",
+    "value": "rjverc20"
+  },
+  {
+    "label": "Berachain",
+    "value": "bera"
+  },
+  {
+    "label": "Harmony",
+    "value": "one"
+  },
+  {
+    "label": "MAGA",
+    "value": "trump"
+  },
+  {
+    "label": "Gemini USD",
+    "value": "gusd"
+  },
+  {
+    "label": "USDT (BSC)",
+    "value": "usdtbsc"
+  },
+  {
+    "label": "Tezos",
+    "value": "xtz"
+  },
+  {
+    "label": "Gala (ERC20)",
+    "value": "galaerc20"
+  },
+  {
+    "label": "Telos",
+    "value": "tlos"
+  },
+  {
+    "label": "NFTb",
+    "value": "nftb"
+  },
+  {
+    "label": "Syscoin",
+    "value": "sysevm"
+  },
+  {
+    "label": "Pitbull",
+    "value": "pit"
+  },
+  {
+    "label": "Neiro (ERC20)",
+    "value": "neiroerc20"
+  },
+  {
+    "label": "Ethereum (Arbitrum)",
+    "value": "etharb"
+  },
+  {
+    "label": "Optimism USDC.e",
+    "value": "opusdce"
+  },
+  {
+    "label": "USDT (ERC20)",
+    "value": "usdterc20"
+  },
+  {
+    "label": "ARPA Chain",
+    "value": "arpa"
+  },
+  {
+    "label": "Decred",
+    "value": "dcr"
+  },
+  {
+    "label": "Travala (ERC20)",
+    "value": "ava2erc20"
+  },
+  {
+    "label": "Tether Gold",
+    "value": "xaut"
+  },
+  {
+    "label": "Ponke",
+    "value": "ponke"
+  },
+  {
+    "label": "DAO Maker",
+    "value": "dao"
+  },
+  {
+    "label": "USDC (Algorand)",
+    "value": "usdcalgo"
+  },
+  {
+    "label": "SuperVerse",
+    "value": "super"
+  },
+  {
+    "label": "BitTorrent Chain",
+    "value": "bttc"
+  },
+  {
+    "label": "Euro Tether",
+    "value": "eurr"
+  },
+  {
+    "label": "Ethereum (BSC)",
+    "value": "ethbsc"
+  },
+  {
+    "label": "Gravity (ERC20)",
+    "value": "gerc20"
+  },
+  {
+    "label": "PayPal USD",
+    "value": "pyusd"
+  },
+  {
+    "label": "Solana",
+    "value": "sol"
+  },
+  {
+    "label": "Rojava (BSC)",
+    "value": "rjvbsc"
+  },
+  {
+    "label": "ChainGPT",
+    "value": "cgpt"
+  },
+  {
+    "label": "Illuvium",
+    "value": "ilv"
+  },
+  {
+    "label": "Aventus",
+    "value": "avn"
+  },
+  {
+    "label": "USDT (TON)",
+    "value": "usdtton"
+  },
+  {
+    "label": "Injective (ERC20)",
+    "value": "injerc20"
+  },
+  {
+    "label": "Klever (Mainnet)",
+    "value": "klvmainnet"
+  },
+  {
+    "label": "Keanu Inu",
+    "value": "keanu"
+  },
+  {
+    "label": "Gari Network",
+    "value": "gari"
+  },
+  {
+    "label": "Ethereum Classic",
+    "value": "etc"
+  },
+  {
+    "label": "The Graph",
+    "value": "grt"
+  },
+  {
+    "label": "Avalanche",
+    "value": "avax"
+  },
+  {
+    "label": "Polygon",
+    "value": "matic"
+  },
+  {
+    "label": "Pax Dollar",
+    "value": "usdp"
+  },
+  {
+    "label": "PIVX",
+    "value": "pivx"
+  },
+  {
+    "label": "Chainlink",
+    "value": "link"
+  },
+  {
+    "label": "Kyber Network",
+    "value": "knc"
+  },
+  {
+    "label": "Ontology",
+    "value": "ont"
+  },
+  {
+    "label": "Netvrk",
+    "value": "netvr"
+  },
+  {
+    "label": "Link Swap",
+    "value": "lnq"
+  },
+  {
+    "label": "Pepe",
+    "value": "pepe"
+  },
+  {
+    "label": "Stellar",
+    "value": "xlm"
+  },
+  {
+    "label": "Bitcoin SV",
+    "value": "verse"
+  },
+  {
+    "label": "MANTRA",
+    "value": "om"
+  },
+  {
+    "label": "NewsCrypto",
+    "value": "nwc"
+  },
+  {
+    "label": "Sidus (ERC20)",
+    "value": "siduserc20"
+  },
+  {
+    "label": "ICON",
+    "value": "icx"
+  },
+  {
+    "label": "Velas (BSC)",
+    "value": "vlxbsc"
+  },
+  {
+    "label": "PEW",
+    "value": "pew"
+  },
+  {
+    "label": "Hoge Finance",
+    "value": "hoge"
+  },
+  {
+    "label": "USDT (Optimism)",
+    "value": "usdtop"
+  },
+  {
+    "label": "Bad Idea AI",
+    "value": "bad"
+  },
+  {
+    "label": "Axie Infinity",
+    "value": "axs"
+  },
+  {
+    "label": "Dogecoin",
+    "value": "doge"
+  },
+  {
+    "label": "Waves",
+    "value": "waves"
+  },
+  {
+    "label": "Cartesi",
+    "value": "ctsi"
+  },
+  {
+    "label": "Aave",
+    "value": "aave"
+  },
+  {
+    "label": "Mog Coin (Base)",
+    "value": "mogbase"
+  },
+  {
+    "label": "ApeSwap Banana",
+    "value": "banana"
+  },
+  {
+    "label": "USDT (Arbitrum)",
+    "value": "usdtarc20"
+  },
+  {
+    "label": "MultiversX",
+    "value": "egld"
+  },
+  {
+    "label": "Fluf World",
+    "value": "fluf"
+  },
+  {
+    "label": "Bella Protocol (BSC)",
+    "value": "belbsc"
+  },
+  {
+    "label": "Step App",
+    "value": "fitfi"
+  },
+  {
+    "label": "Sun Token",
+    "value": "sun"
+  },
+  {
+    "label": "MultiversX (BSC)",
+    "value": "egldbsc"
+  },
+  {
+    "label": "Bazed Games",
+    "value": "bazed"
+  },
+  {
+    "label": "Ethereum",
+    "value": "eth"
+  },
+  {
+    "label": "Kiba Inu (BSC)",
+    "value": "kibabsc"
+  },
+  {
+    "label": "Civic",
+    "value": "cvc"
+  },
+  {
+    "label": "XDC Network",
+    "value": "xdc"
+  },
+  {
+    "label": "Ethereum (Base)",
+    "value": "ethbase"
+  },
+  {
+    "label": "Ethereum (Linea)",
+    "value": "ethlna"
+  },
+  {
+    "label": "ChainGPT (BSC)",
+    "value": "cgptbsc"
+  },
+  {
+    "label": "Kishu Inu",
+    "value": "kishu"
+  },
+  {
+    "label": "Lingo",
+    "value": "lingo"
+  },
+  {
+    "label": "USDT (Arbitrum)",
+    "value": "usdtarb"
+  },
+  {
+    "label": "Ariva",
+    "value": "arv"
+  },
+  {
+    "label": "Tenshi",
+    "value": "tenshi"
+  },
+  {
+    "label": "Terra Luna",
+    "value": "luna"
+  },
+  {
+    "label": "PancakeSwap",
+    "value": "cake"
+  },
+  {
+    "label": "JasmyCoin",
+    "value": "jasmy"
+  },
+  {
+    "label": "Polygon (Mainnet)",
+    "value": "maticmainnet"
+  },
+  {
+    "label": "Hedera",
+    "value": "hbar"
+  },
+  {
+    "label": "eCash",
+    "value": "xec"
+  },
+  {
+    "label": "TRON",
+    "value": "trx"
+  },
+  {
+    "label": "Polygon USDC.e",
+    "value": "maticusdce"
+  },
+  {
+    "label": "VeChain",
+    "value": "vet"
+  },
+  {
+    "label": "Cardano",
+    "value": "ada"
+  },
+  {
+    "label": "MX Token",
+    "value": "mx"
+  },
+  {
+    "label": "USDC (Polygon)",
+    "value": "usdcmatic"
+  },
+  {
+    "label": "Dai Stablecoin",
+    "value": "dai"
+  },
+  {
+    "label": "Cat in a Dogs World",
+    "value": "mew"
+  },
+  {
+    "label": "Basic Attention",
+    "value": "bat"
+  },
+  {
+    "label": "FTX Token",
+    "value": "ftt"
+  },
+  {
+    "label": "Baby Doge Coin",
+    "value": "babydoge"
+  },
+  {
+    "label": "SPACE ID",
+    "value": "id"
+  },
+  {
+    "label": "Pallex",
+    "value": "plx"
+  },
+  {
+    "label": "Sui Network",
+    "value": "sui"
+  },
+  {
+    "label": "GateToken",
+    "value": "gt"
+  },
+  {
+    "label": "LayerZero (Arbitrum)",
+    "value": "zroarb"
+  },
+  {
+    "label": "Stika Token",
+    "value": "stkk"
+  },
+  {
+    "label": "Zcash",
+    "value": "zec"
+  },
+  {
+    "label": "USDC (Optimism)",
+    "value": "usdcop"
+  },
+  {
+    "label": "Major",
+    "value": "major"
+  },
+  {
+    "label": "Virtual Protocol",
+    "value": "vps"
+  }
+]

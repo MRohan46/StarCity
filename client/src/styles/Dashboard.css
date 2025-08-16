@@ -1,0 +1,58 @@
+.dash-container {
+  display: flex;
+  height: 100vh;
+  background: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+.dash-sidebar {
+  width: 240px;
+  background: #222;
+  color: white;
+  padding: 20px;
+}
+
+.dash-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.dash-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.dash-item {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.dash-item:hover {
+  background: #444;
+}
+
+.dash-active {
+  background: #555;
+}
+
+.dash-main {
+  flex: 1;
+  padding: 30px;
+}
+
+.dash-account-info {
+  color: black;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.dash-heading {
+  margin-bottom: 10px;
+}
+
+.dash-text {
+  margin: 5px 0;
+}
