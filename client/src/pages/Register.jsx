@@ -225,8 +225,7 @@ const Register = () => {
             </button>
           </div>
 
-          */}
-          {/* OR Separator */}
+          {/* OR Separator }
           <div style={{ margin: "25px 0", textAlign: "center", position: "relative" }}>
             <span style={{ background: "#0a0a0a", padding: "0 10px" }}>OR</span>
             <div
@@ -238,8 +237,9 @@ const Register = () => {
                 top: "50%",
                 left: 0,
               }}
-            ></div>
+              ></div>
           </div>
+          */}
 
           {/* Signup Form */}
           <form onSubmit={handleRegister}>
