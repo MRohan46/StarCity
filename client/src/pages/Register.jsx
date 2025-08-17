@@ -51,16 +51,6 @@ const Register = () => {
       if (res.data.success) {
         toast.success("✅ Registered successfully");
 
-        try {
-          await axios.post(
-            `${host}/api/auth/resend-otp`,
-            {},
-            { withCredentials: true }
-          );
-        } catch {
-          toast.error("⚠️ Failed to send OTP. Try again.");
-        }
-
         setTimeout(() => {
           window.location.href = "/email-verify";
         }, 10);
