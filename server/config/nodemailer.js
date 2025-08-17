@@ -10,5 +10,4 @@ const transporter = nodemailer.createTransport({
     pass: process.env.NOREPLY_STARCITY,     // your password
   },
 });
-
 export default transporter;
