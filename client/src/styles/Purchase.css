@@ -141,7 +141,7 @@ body::before {
 }
 
 .shop-link::after {
-    content: "-30%";
+    content: "-40%";
     position: absolute;
     top: -8px;
     right: -8px;
