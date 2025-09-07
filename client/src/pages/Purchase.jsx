@@ -477,6 +477,27 @@ const Purchase = () => {
         .toast-info {
           border-left: 4px solid #17a2b8;
         }
+        .discount-banner {
+          background: linear-gradient(135deg, #ffcc70, #ff8177);
+          color: #fff;
+          font-size: 1.5rem;
+          font-weight: bold;
+          padding: 1rem 2rem;
+          border-radius: 12px;
+          text-align: center;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+          animation: pulse 2s infinite;
+        }
+        
+        .discount-banner span {
+          color: #ffd700;
+          text-shadow: 0 0 5px #000;
+        }
+        
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
 
         @keyframes slideIn {
           from {
@@ -546,6 +567,12 @@ const Purchase = () => {
             <h2>PREMIUM PACKAGES</h2>
             <p>Choose from our exclusive premium packages with incredible bonuses</p>
           </div>
+          <div className="packages-header">
+            <p className="discount-banner">
+              🎉 Beta Launch Special – Enjoy <span>40% OFF</span> on All Gold Coin Packages!
+            </p>
+          </div>
+
 
           <div className="packages-grid">
             {packageData.map((pkg) => (
