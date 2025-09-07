@@ -593,6 +593,7 @@ const Purchase = () => {
                   <div className="coins-amount">{pkg?.coins.toLocaleString()}</div>
                   <div className="original-amount">{pkg?.originalAmount.toLocaleString()}</div>
                   <div className="bonus-info">BONUS {pkg?.bonus.toLocaleString()}</div>
+                  <p class="discount-banner"><span>40% OFF</span></p>
                   <div className="package-price">${pkg?.price}</div>
                   <button className="buy-package-btn" onClick={(e) => {
                     e.stopPropagation();
