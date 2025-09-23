@@ -116,7 +116,6 @@ const Purchase = () => {
   };
 
   const handleConfirm = async () => {
-    setDisabled
     if (!selectedProduct) {
       toast.error('No product selected.');
       return;
