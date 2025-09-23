@@ -132,7 +132,30 @@ const Purchase = () => {
     }
 
     if (selectedMethod === 'card') {
-      toast.error('Credit/Debit card payments are coming soon!');
+      try {
+        const res = await axios.post(
+          `${host}/api/payment/create-checkout-session`,
+          {
+            product_id: selectedProduct.id,
+          },
+          {
+            withCredentials: true,
+          }
+        );
+        navigate(res?.data?.redirectUrl)
+        if (!res.data.success) {
+          toast.error(res.data.message || 'Payment failed.');
+        } else {
+          closeModal();
+          
+          toast.success('Payment created successfully!');
+          navigate('/payment');
+        }
+      } catch (err) {
+        toast.error(err.response?.data?.message|| "an error occured");
+      }finally {
+        setIsProcessing(false);
+      }
       return;
     }
 
@@ -477,27 +500,6 @@ const Purchase = () => {
         .toast-info {
           border-left: 4px solid #17a2b8;
         }
-        .discount-banner {
-          background: linear-gradient(135deg, #ffcc70, #ff8177);
-          color: #fff;
-          font-size: 1.5rem;
-          font-weight: bold;
-          padding: 1rem 2rem;
-          border-radius: 12px;
-          text-align: center;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-          animation: pulse 2s infinite;
-        }
-        
-        .discount-banner span {
-          color: #ffd700;
-          text-shadow: 0 0 5px #000;
-        }
-        
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.05); }
-        }
 
         @keyframes slideIn {
           from {
@@ -567,12 +569,6 @@ const Purchase = () => {
             <h2>PREMIUM PACKAGES</h2>
             <p>Choose from our exclusive premium packages with incredible bonuses</p>
           </div>
-          <div className="packages-header">
-            <p className="discount-banner">
-              🎉 Beta Launch Special – Enjoy <span>40% OFF</span> on All Gold Coin Packages!
-            </p>
-          </div>
-
 
           <div className="packages-grid">
             {packageData.map((pkg) => (
@@ -593,7 +589,6 @@ const Purchase = () => {
                   <div className="coins-amount">{pkg?.coins.toLocaleString()}</div>
                   <div className="original-amount">{pkg?.originalAmount.toLocaleString()}</div>
                   <div className="bonus-info">BONUS {pkg?.bonus.toLocaleString()}</div>
-                  <p class="discount-banner"><span>40% OFF</span></p>
                   <div className="package-price">${pkg?.price}</div>
                   <button className="buy-package-btn" onClick={(e) => {
                     e.stopPropagation();
@@ -781,8 +776,8 @@ const Purchase = () => {
               )}
               {/* Card Coming Soon */}
               {selectedMethod === 'card' && (
-                <div className="coming-soon">
-                  Credit/Debit Card payments coming soon!
+                <div className="1">
+                  
                 </div>
               )}
 
