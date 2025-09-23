@@ -171,7 +171,7 @@ const Purchase = () => {
             withCredentials: true,
           }
         );
-        navigate(res?.data?.redirectUrl)
+        window.location.href = res?.data?.redirectUrl;
         if (!res.data.success) {
           toast.error(res.data.message || 'Payment failed.');
         } else {
