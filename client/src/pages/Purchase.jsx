@@ -116,6 +116,7 @@ const Purchase = () => {
   };
 
   const handleConfirm = async () => {
+    setDisabled
     if (!selectedProduct) {
       toast.error('No product selected.');
       return;
@@ -130,13 +131,15 @@ const Purchase = () => {
       toast.error('Please select a cryptocurrency wallet.');
       return;
     }
-
-    if (selectedMethod === 'card') {
+    if(selectedMethod === 'crypto' && selectedWallet){
+      setIsProcessing(true);
+      
       try {
         const res = await axios.post(
-          `${host}/api/payment/create-checkout-session`,
+          `${host}/api/payment/create`,
           {
             product_id: selectedProduct.id,
+            currency: currency,
           },
           {
             withCredentials: true,
@@ -156,35 +159,33 @@ const Purchase = () => {
       }finally {
         setIsProcessing(false);
       }
-      return;
     }
-
-    setIsProcessing(true);
-    
-    try {
-      const res = await axios.post(
-        `${host}/api/payment/create`,
-        {
-          product_id: selectedProduct.id,
-          currency: currency,
-        },
-        {
-          withCredentials: true,
+    if (selectedMethod === 'card') {
+      setIsProcessing(true);
+      try {
+        const res = await axios.post(
+          `${host}/api/payment/create-checkout-session`,
+          {
+            product_id: selectedProduct.id,
+          },
+          {
+            withCredentials: true,
+          }
+        );
+        navigate(res?.data?.redirectUrl)
+        if (!res.data.success) {
+          toast.error(res.data.message || 'Payment failed.');
+        } else {
+          closeModal();
+          
+          toast.success('Payment created successfully!');
         }
-      );
-      navigate(res?.data?.redirectUrl)
-      if (!res.data.success) {
-        toast.error(res.data.message || 'Payment failed.');
-      } else {
-        closeModal();
-        
-        toast.success('Payment created successfully!');
-        navigate('/payment');
+      } catch (err) {
+        toast.error(err.response?.data?.message|| "an error occured");
+      }finally {
+        setIsProcessing(false);
       }
-    } catch (err) {
-      toast.error(err.response?.data?.message|| "an error occured");
-    }finally {
-      setIsProcessing(false);
+      return;
     }
   };
 
