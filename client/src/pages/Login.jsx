@@ -362,7 +362,18 @@ const Login = () => {
               {loading ? "Logging in..." : "Log In"}
             </button>
           </form>
-
+          <br />
+          <a
+            style={{
+              color: "#ffd700",
+              margin: "0 10px",
+              textDecoration: "none",
+            }}
+            href="/forgot-password"
+          >
+            Forgot Password? Click to Change.
+          </a>
+          
           <br />
           <a
             style={{
@@ -374,6 +385,7 @@ const Login = () => {
           >
             New user? Click to Register
           </a>
+          
         </div>
       </section>
 
