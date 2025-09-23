@@ -322,6 +322,27 @@ const Purchase = () => {
           font-weight: bold;
           margin-bottom: 15px;
         }
+        .discount-banner {
+          background: linear-gradient(135deg, #ffcc70, #ff8177);
+          color: #fff;
+          font-size: 1.5rem;
+          font-weight: bold;
+          padding: 1rem 2rem;
+          border-radius: 12px;
+          text-align: center;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+          animation: pulse 2s infinite;
+        }
+        
+        .discount-banner span {
+          color: #ffd700;
+          text-shadow: 0 0 5px #000;
+        }
+        
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
 
         .product-info p {
           margin: 5px 0;
@@ -569,7 +590,11 @@ const Purchase = () => {
             <h2>PREMIUM PACKAGES</h2>
             <p>Choose from our exclusive premium packages with incredible bonuses</p>
           </div>
-
+          <div className="packages-header">
+            <p className="discount-banner">
+              🎉 Beta Launch Special – Enjoy <span>40% OFF</span> on All Gold Coin Packages!
+            </p>
+          </div>
           <div className="packages-grid">
             {packageData.map((pkg) => (
               <div key={pkg.id} className="package-card" onClick={() => buyPackage(pkg.name, pkg.price)}>
@@ -589,6 +614,7 @@ const Purchase = () => {
                   <div className="coins-amount">{pkg?.coins.toLocaleString()}</div>
                   <div className="original-amount">{pkg?.originalAmount.toLocaleString()}</div>
                   <div className="bonus-info">BONUS {pkg?.bonus.toLocaleString()}</div>
+                  <p class="discount-banner"><span>40% OFF</span></p>
                   <div className="package-price">${pkg?.price}</div>
                   <button className="buy-package-btn" onClick={(e) => {
                     e.stopPropagation();
