@@ -802,8 +802,8 @@ const Purchase = () => {
               )}
               {/* Card Coming Soon */}
               {selectedMethod === 'card' && (
-                <div className="1">
-                  
+                <div className="coming-soon">
+                    Credit/Debit Card Coming soon.
                 </div>
               )}
 
